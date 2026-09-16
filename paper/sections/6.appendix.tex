@@ -35,4 +35,9 @@ available, an external monitor.
 Every subset of size two to five of layers $\{2,4,7,12,3\}$, at fixed,
 square-root-normalised and linearly normalised strength: $78$ combinations plus
 five single-layer controls. Seed $42$, deterministic FP32 with TF32 disabled,
-$1{,}081.9$~s on an NVIDIA RTX PRO 6000 Blackwell.
+$1{,}081.9$~s on an NVIDIA RTX PRO 6000 Blackwell. Mixed precision can change
+nearest-neighbour identities when gallery similarities are nearly tied, so it
+is used only for candidate screening. As a diagnostic, two
+consecutive FP32 encodings of eight images within the confirmatory process were
+bitwise identical (maximum absolute difference $0$); no cross-process
+reproducibility is claimed.

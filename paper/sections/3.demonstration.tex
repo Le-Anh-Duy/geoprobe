@@ -28,8 +28,8 @@ Attendees operate the system directly through three short scenarios.
 \subsubsection{Regional dependence.}
 The attendee uploads a street-level image, marks a visual cue such as a sign or
 licence plate, and suppresses its region. A large map displacement demonstrates
-sensitivity to that evidence; a small displacement indicates that the current
-prediction is stable under the intervention.
+sensitivity to that evidence; a small one indicates a prediction that is stable
+under the intervention.
 
 \subsubsection{Proposal comparison.}
 For a benchmark example, cached WeDetect-Uni proposals can be applied
@@ -46,13 +46,13 @@ the baseline exactly.
 \subsection{Deployment and Relevance}
 
 The live system stores GeoCLIP, its $10^5$-point GPS gallery, location
-embeddings and cached proposals locally. The current interface obtains
-basemap tiles and reverse-geocoded place names from public map services;
-these provide cartographic context but are not part of model inference.
+embeddings and cached proposals locally. Only basemap tiles and place names
+come from public map services, and they are not part of model inference.
 
-We bring the demonstration machine; it needs no GPU and runs inference
-offline. The appendix states the setup requirements in full. The implementation and
-experiment scripts will be made publicly available upon acceptance.
+We bring the demonstration machine; the appendix states the setup
+requirements in full. The implementation, the evaluation
+scripts and the results reported here are available at
+\url{https://github.com/Le-Anh-Duy/geoprobe}.
 GeoProbe connects multimodal geolocation with causal explanation: rather than
 presenting an attention map as evidence, it lets the attendee change an
 attention pathway and observe the consequent geographic output. This

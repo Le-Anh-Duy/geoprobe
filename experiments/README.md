@@ -12,6 +12,7 @@ strength change never changes the regions.
 |---|---|
 | `eval_img2gps3k_wedetect_colab.py` | Full-dataset evaluation, written for `colab exec -f`. Exports WeDetect-Uni to ONNX inside the VM, checkpoints per image so an interrupted run resumes, and writes `summary.json` + `per_image.csv` |
 | `analyze_img2gps3k_wedetect.py` | Turns a run directory into `analysis/`: outcome distribution, proposal-count and geographic breakdowns |
+| `mask_area_control.py` | Relates mask coverage to prediction displacement -- the control reported at the end of Section 4. Stdlib only, no dependencies |
 | `notebooks/geoclip_group_random_search_colab.ipynb` | Earlier random search over three contiguous layer groups (early 0–7, middle 8–15, late 16–23). Superseded by the per-layer search below; kept because it motivated it |
 | `layer_search/` | The discovery/holdout per-layer search reported in the paper — **not yet committed**, see below |
 
@@ -36,6 +37,29 @@ in 2,050 of the 2,997 images.
 Each directory holds `summary.json` (config, proposal statistics, aggregate
 metrics), `per_image.csv` (per-image predictions and geodesic errors) and
 `execution_log.ipynb` (the captured remote execution).
+
+## Mask-area control
+
+```
+python experiments/mask_area_control.py
+```
+
+Answers the obvious objection that a bigger mask simply perturbs more of the
+image and therefore moves the prediction further. Over the 2,051 active-mask
+images of the all-layer run, coverage and displacement are *negatively*
+related, Spearman rho = -0.256:
+
+| Coverage quartile | n | Mean displacement | Median | Unmoved |
+|---|---:|---:|---:|---:|
+| 0.00-0.19 | 515 | 2579.9 km | 406.7 km | 13.8% |
+| 0.19-0.47 | 513 | 2303.6 km | 530.0 km | 15.4% |
+| 0.47-0.81 | 557 | 1856.5 km | 33.3 km | 33.9% |
+| 0.81-1.00 | 466 | 1388.6 km | 0.0 km | 49.4% |
+
+A mask spanning nearly every patch adds almost the same bias to every patch
+key, and softmax is invariant to a constant shift, so the intervention cancels.
+`demo-images/README.md` shows the same effect on one image: a 208-patch region
+moves the prediction 0 km while a 56-patch region moves it 318 km.
 
 ## Missing: the per-layer discovery/holdout search
 

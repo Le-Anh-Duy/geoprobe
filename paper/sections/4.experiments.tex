@@ -45,7 +45,7 @@ therefore does not support synergy between individually promising layers.
 \centering
 \caption{Deterministic FP32 results. $\Delta_c$ is mean improvement clipped to
 $\pm2500$~km; positive is better. Columns after the discovery score are holdout
-metrics.}
+metrics. Every column but the last is in kilometres.}
 \label{tab:main}
 \small
 \setlength{\tabcolsep}{2.5pt}
@@ -53,9 +53,7 @@ metrics.}
 \toprule
 \textbf{Configuration} &
 \textbf{Disc. $\Delta_c$} & \textbf{Error} & \textbf{Hold. $\Delta_c$} &
-\textbf{95\% CI} & \textbf{Shift} &
-\textbf{Cosine} \\
- & \multicolumn{5}{c}{\textbf{km}} & \\
+\textbf{95\% CI} & \textbf{Shift} & \textbf{Cosine} \\
 \midrule
 GeoCLIP baseline & 0.00 & 1716.31 & 0.00 & --- & 0.00 & 1.0000 \\
 Layer 2 & +4.95 & 1731.44 & -4.30 & $[-18.83,9.96]$ & 136.15 & 0.9993 \\
@@ -69,27 +67,29 @@ sensitivity. The selected configuration preserves a mean cosine similarity of
 $0.9984$ to the baseline image embedding, yet moves the predicted coordinate
 by $189.5$~km on average. GeoCLIP retrieves from $10^5$ location embeddings;
 small movements in representation space can therefore cross a gallery
-decision boundary and produce a geographically large change. GeoProbe makes
-this otherwise hidden sensitivity directly observable.
+decision boundary and produce a geographically large change.
 
 Increasing the number of layers does not help on average. With fixed magnitude
-$2$, mean holdout $\Delta_c$ declines from $-8.22$~km for two-layer
-combinations to $-39.35$~km for five layers. The $2/k$ schedule limits this
-accumulation (between $-2.01$ and $-0.13$~km across combination sizes), but
-does not yield a consistent positive effect. Candidate rankings also transfer
+$2$, mean holdout $\Delta_c$ declines from $-8.22$~km for two layers to
+$-39.35$~km for five. The $2/k$ schedule limits this accumulation ($-2.01$ to
+$-0.13$~km across sizes) without yielding a consistent positive effect. Candidate rankings also transfer
 weakly from discovery to holdout ($r=0.259$), underscoring the risk of
 reporting the best result on the same images used to find it.
 
 This conclusion is not an artefact of diluting the result with no-op images.
 On the $1{,}321$ holdout images with an active mask, the selected configuration
 obtains $-5.32$~km (95\% CI $[-28.75,18.02]$), and its paired advantage over
-layer 2 remains only $0.92$~km (95\% CI $[-23.66,25.66]$). Mixed precision can
-change nearest-neighbour identities when gallery similarities are nearly tied;
-it is used only for candidate screening. In a separate diagnostic, two
-consecutive FP32 encodings of eight images in the confirmatory process were
-bitwise identical (maximum absolute difference $0$); no cross-process
-reproducibility is claimed.
+layer 2 remains only $0.92$~km (95\% CI $[-23.66,25.66]$).
 
-The experiment isolates layer-combination effects, not whether WeDetect regions
-are more informative than arbitrary ones; that claim needs an area-matched
-random-mask control.
+A natural objection is that displacement merely tracks how much of the image
+the mask covers. It does not. Over the $2{,}051$ active-mask images of the
+all-layer $a=2$, $b=-2$ run, coverage and displacement are negatively related
+(Spearman $\rho=-0.256$): the least-covered quartile moves the prediction by a
+median of $407$~km with $13.8\%$ of images unmoved, whereas the quartile
+covering more than $81\%$ of patches moves it by a median of $0$~km with
+$49.4\%$ unmoved. Eq.~\ref{eq:bias} predicts this: a mask spanning nearly
+every patch biases every patch key almost equally, and softmax is invariant to
+a constant shift. The experiment still isolates
+layer-combination effects rather than showing that WeDetect regions are more
+informative than arbitrary ones; that claim needs an area-matched random-mask
+control.
