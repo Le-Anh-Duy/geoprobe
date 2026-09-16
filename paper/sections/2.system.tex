@@ -66,16 +66,19 @@ empty mask and therefore an exact no-op. We retain these cases in the
 full-dataset results and additionally report the active-mask subset. Multiple
 regions are combined by union.
 
-\subsection{Prompt-Free Region Proposals}
+\subsection{Specifying the Region}
 
-Manually delineated rectangles support targeted case studies, but they do
-not scale to a complete dataset and make the analysis depend on a
-user-supplied concept. For systematic evaluation, GeoProbe uses WeDetect-Uni,
-a universal proposal generator trained with a learned objectness prompt to
-retrieve category-agnostic foreground boxes~\cite{fu2026wedetect}. It
-therefore avoids the per-image text query required by grounded detectors such
-as Grounding DINO~\cite{liu2024grounding}. The detector
-never observes ground-truth coordinates. Proposals are computed once and
+Manually delineated rectangles support targeted case studies but do not scale
+to a complete dataset. Drawing one is itself a query, and the
+intervention consumes the resulting mask however it was obtained. Where no
+user is present to point, GeoProbe uses
+WeDetect-Uni~\cite{fu2026wedetect}, an open-vocabulary detector run in its
+visual-only configuration, which keeps proposal generation on CPU: boxes are
+scored against a bank of learned objectness prompts rather than a per-image
+text query. Its text tower can be enabled
+when a named concept is wanted, in the manner of Grounding
+DINO~\cite{liu2024grounding}. The detector never observes ground-truth
+coordinates. Proposals are computed once and
 cached; downstream layer searches only change the attention intervention, so
 every configuration receives identical regions.
 
