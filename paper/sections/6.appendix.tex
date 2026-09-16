@@ -1,0 +1,38 @@
+\section*{Appendix: Demonstration Details}
+
+\subsubsection*{Demonstration video.}
+A screen capture of the three scenarios of Section~\ref{sec:demo}, recorded on
+a live instance and under three minutes long, is available at
+\url{https://drive.google.com/drive/folders/1QsH8qOV5hxGi62qoXuWCsY0u6fgqQdQL}.
+
+\subsubsection*{What the live demonstration shows.}
+Attendees operate a running instance themselves, on provided samples or their
+own photographs. A session lasts two to three minutes: upload an image, obtain
+the unmodified prediction, mark a region by hand or load prompt-free
+WeDetect-Uni proposals, choose which of the $24$ layers the bias acts on, and
+read both predictions and their geodesic separation from the map.
+
+\subsubsection*{Interaction details.}
+Regions are drawn as rectangles or selected from returned proposals, and
+combine by union. Each layer exposes the in-region bias $a$ and out-of-region
+bias $b$, shown as a logit bias or the equivalent attention scale. Setting
+every bias to zero is an exact no-op, so the attendee can recover the
+unmodified model and verify the displayed baseline. A separate control
+evaluates each proposal independently, ranking the regions of one image by the
+displacement each induces.
+
+\subsubsection*{Setup requirements.}
+We provide the demonstration machine: a laptop holding the $1.6$~GB CLIP
+ViT-L/14 checkpoint, the $410$~MB WeDetect-Uni proposal graph, the GPS gallery
+and the location embeddings. No GPU is required --- on CPU alone one request
+returns both predictions in about eight seconds, and proposal generation takes
+about two seconds. Inference runs offline; only basemap tiles and place names
+come from public map services, and predictions and displacements stay legible
+without them. From the organisers we need table space, mains power and, where
+available, an external monitor.
+
+\subsubsection*{Search details.}
+Every subset of size two to five of layers $\{2,4,7,12,3\}$, at fixed,
+square-root-normalised and linearly normalised strength: $78$ combinations plus
+five single-layer controls. Seed $42$, deterministic FP32 with TF32 disabled,
+$1{,}081.9$~s on an NVIDIA RTX PRO 6000 Blackwell.

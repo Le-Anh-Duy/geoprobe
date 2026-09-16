@@ -1,0 +1,34 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+
+# Node
+node_modules/
+dist/
+dist-ssr/
+*.local
+
+# Model caches (fetched at setup time, never committed)
+# CLIP ViT-L/14  -> ~/.cache/huggingface
+# WeDetect-Uni   -> ~/.cache/wedetect
+
+# LaTeX build artifacts
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.out
+*.synctex.gz
+*.toc
+paper/*.log
+paper/main.pdf
+
+# Editor / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

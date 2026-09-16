@@ -1,0 +1,60 @@
+\section{Demonstration}
+\label{sec:demo}
+
+\begin{figure}[t]
+  \centering
+  \small
+  \begin{tikzpicture}[
+      node distance=4mm,
+      stage/.style={draw, rounded corners=1pt, align=center,
+                    minimum height=9mm, text width=24mm, inner sep=2pt},
+      arrow/.style={->, line width=0.45pt}]
+    \node[stage] (input) {Image\\+ regions};
+    \node[stage, right=of input] (control) {Per-layer\\attention bias};
+    \node[stage, right=of control] (passes) {Baseline +\\intervened passes};
+    \node[stage, right=of passes] (output) {GPS results\\+ displacement};
+    \draw[arrow] (input) -- (control);
+    \draw[arrow] (control) -- (passes);
+    \draw[arrow] (passes) -- (output);
+  \end{tikzpicture}
+  \caption{Interactive analysis flow. Regions may be drawn manually or loaded
+  from WeDetect-Uni; both model outputs are presented together.}
+  \label{fig:interaction_flow}
+  \vspace{-2mm}
+\end{figure}
+
+Attendees operate the system directly through three short scenarios.
+
+\subsubsection{Regional dependence.}
+The attendee uploads a street-level image, marks a visual cue such as a sign or
+licence plate, and suppresses its region. A large map displacement demonstrates
+sensitivity to that evidence; a small displacement indicates that the current
+prediction is stable under the intervention.
+
+\subsubsection{Proposal comparison.}
+For a benchmark example, cached WeDetect-Uni proposals can be applied
+individually or as a union. The resulting displacements distinguish sensitivity
+to one foreground object from sensitivity to the broader object-bearing region,
+without a text prompt tailored to the image.
+
+\subsubsection{Layer localisation.}
+The attendee compares a single active layer with a multi-layer schedule.
+Broader intervention often increases displacement without improving error,
+mirroring Section~\ref{sec:experiments}. Resetting all biases to zero restores
+the baseline exactly.
+
+\subsection{Deployment and Relevance}
+
+The live system stores GeoCLIP, its $10^5$-point GPS gallery, location
+embeddings and cached proposals locally. The current interface obtains
+basemap tiles and reverse-geocoded place names from public map services;
+these provide cartographic context but are not part of model inference.
+
+We bring the demonstration machine; it needs no GPU and runs inference
+offline. The appendix states the setup requirements in full. The implementation and
+experiment scripts will be made publicly available upon acceptance.
+GeoProbe connects multimodal geolocation with causal explanation: rather than
+presenting an attention map as evidence, it lets the attendee change an
+attention pathway and observe the consequent geographic output. This
+distinction is relevant to both multimedia verification and the privacy risks
+of inferring location from untagged images.

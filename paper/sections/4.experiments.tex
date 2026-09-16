@@ -1,0 +1,95 @@
+\section{Quantitative Study}
+\label{sec:experiments}
+
+\subsection{Experimental Setup}
+
+We evaluate on all $2{,}997$ Img2GPS3k images~\cite{vo2017revisiting}.
+WeDetect-Uni Base generates category-agnostic proposals once for the complete
+set. We cache boxes at an objectness threshold of $0.15$ after non-maximum
+suppression ($0.7$ IoU), then form the intervention mask from the union of at
+most $100$ boxes scoring at least $0.4$. This produces $6{,}152$ boxes in
+$2{,}081$ images; $2{,}058$ images retain a non-empty mask after CLIP's centre
+crop. Images without an active mask remain in the evaluation as exact no-ops,
+so the reported metrics describe the complete benchmark.
+
+For every active layer, the same in-region and out-of-region biases are applied
+to all $16$ heads, with base magnitudes $a=+2$ and $b=-2$. We measure top-1
+geodesic error and
+prediction displacement. For image $i$, improvement is
+$\Delta_i=d_i^{\mathrm{base}}-d_i^{\mathrm{int}}$, so positive values are
+better. Because a gallery change can move a prediction across continents, the
+selection score is the mean of
+$\operatorname{clip}(\Delta_i,-2500,2500)$~km. Confidence intervals use
+$10{,}000$ paired bootstrap resamples over images.
+
+We deterministically assign $1{,}079$ images to discovery and $1{,}918$ to
+holdout by hashing the file name. Model selection uses discovery only. A
+preliminary mixed-precision layer sweep on the discovery split supplies five candidates,
+$\{2,4,7,12,3\}$, ordered by discovery score. We evaluate all $26$ subsets containing two to five of
+these layers under three strength schedules: fixed $2$ per layer,
+$2/\sqrt{k}$, and $2/k$, where $k$ is the number of active layers. Together
+with five single-layer controls, this gives $78$ combinations and five
+controls. The confirmatory pass uses deterministic FP32 with TF32 disabled.
+
+\subsection{Held-Out Results}
+
+The discovery split selects layers $\{2,7,12\}$ with the $2/k$ schedule,
+equivalent to magnitude $0.667$ at each layer. Table~\ref{tab:main} compares
+this configuration with the discovery-selected single-layer control. The
+apparent discovery gain does not transfer: the selected combination changes
+from $+11.94$~km on discovery to $-3.66$~km on holdout. Its paired advantage
+over layer 2 is only $0.64$~km (95\% CI $[-16.83,17.57]$). The experiment
+therefore does not support synergy between individually promising layers.
+
+\begin{table}[t]
+\centering
+\caption{Deterministic FP32 results. $\Delta_c$ is mean improvement clipped to
+$\pm2500$~km; positive is better. Columns after the discovery score are holdout
+metrics.}
+\label{tab:main}
+\small
+\setlength{\tabcolsep}{2.5pt}
+\begin{tabular}{l|rrrrrr}
+\toprule
+\textbf{Configuration} &
+\textbf{Disc. $\Delta_c$} & \textbf{Error} & \textbf{Hold. $\Delta_c$} &
+\textbf{95\% CI} & \textbf{Shift} &
+\textbf{Cosine} \\
+ & \multicolumn{5}{c}{\textbf{km}} & \\
+\midrule
+GeoCLIP baseline & 0.00 & 1716.31 & 0.00 & --- & 0.00 & 1.0000 \\
+Layer 2 & +4.95 & 1731.44 & -4.30 & $[-18.83,9.96]$ & 136.15 & 0.9993 \\
+Layers 2, 7, 12 ($2/k$) & +11.94 & 1728.86 & -3.66 & $[-20.43,12.40]$ & 189.53 & 0.9984 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Despite the absence of an accuracy gain, the intervention exposes output
+sensitivity. The selected configuration preserves a mean cosine similarity of
+$0.9984$ to the baseline image embedding, yet moves the predicted coordinate
+by $189.5$~km on average. GeoCLIP retrieves from $10^5$ location embeddings;
+small movements in representation space can therefore cross a gallery
+decision boundary and produce a geographically large change. GeoProbe makes
+this otherwise hidden sensitivity directly observable.
+
+Increasing the number of layers does not help on average. With fixed magnitude
+$2$, mean holdout $\Delta_c$ declines from $-8.22$~km for two-layer
+combinations to $-39.35$~km for five layers. The $2/k$ schedule limits this
+accumulation (between $-2.01$ and $-0.13$~km across combination sizes), but
+does not yield a consistent positive effect. Candidate rankings also transfer
+weakly from discovery to holdout ($r=0.259$), underscoring the risk of
+reporting the best result on the same images used to find it.
+
+This conclusion is not an artefact of diluting the result with no-op images.
+On the $1{,}321$ holdout images with an active mask, the selected configuration
+obtains $-5.32$~km (95\% CI $[-28.75,18.02]$), and its paired advantage over
+layer 2 remains only $0.92$~km (95\% CI $[-23.66,25.66]$). Mixed precision can
+change nearest-neighbour identities when gallery similarities are nearly tied;
+it is used only for candidate screening. In a separate diagnostic, two
+consecutive FP32 encodings of eight images in the confirmatory process were
+bitwise identical (maximum absolute difference $0$); no cross-process
+reproducibility is claimed.
+
+The experiment isolates layer-combination effects, not whether WeDetect regions
+are more informative than arbitrary ones; that claim needs an area-matched
+random-mask control.

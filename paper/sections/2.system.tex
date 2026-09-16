@@ -1,0 +1,91 @@
+\section{System}
+\label{sec:system}
+
+\subsection{Background}
+
+GeoCLIP~\cite{cepeda2023geoclip} encodes an image $x$ with a CLIP ViT-L/14
+vision tower $f_{\mathrm{img}}$ and GPS coordinates with a location encoder
+$f_{\mathrm{loc}}$, then retrieves
+\begin{equation*}
+\hat{g}(x)=\arg\max_{g\in\mathcal{G}}
+\langle\bar f_{\mathrm{img}}(x),\bar f_{\mathrm{loc}}(g)\rangle .
+\end{equation*}
+Here, $\bar{\cdot}$ denotes $L_2$ normalisation and $\mathcal{G}$ is a fixed
+gallery of $10^{5}$ coordinates. GeoProbe leaves $f_{\mathrm{loc}}$ and
+$\mathcal{G}$ unmodified throughout; every intervention acts upon
+$f_{\mathrm{img}}$ alone, so that any change in $\hat{g}$ is attributable to
+the image pathway.
+
+\subsection{Region-Conditioned Attention Intervention}
+\label{sec:intervention}
+
+In each of the $L=24$ self-attention layers of the vision tower, attention
+weights are obtained as $\mathrm{softmax}(QK^{\top}/\sqrt{d})$ over a
+sequence of $257$ tokens: one \texttt{CLS} token followed by $256$ patch
+tokens arranged on a $16 \times 16$ grid. Given a region mask
+$m \in \{0,1\}^{256}$ indicating the patches falling within the selected
+region, GeoProbe adds a key-indexed bias to the attention logits of layer
+$\ell$ prior to the softmax,
+\begin{equation}
+  A^{(\ell)} = \mathrm{softmax}\!\left(
+  \frac{QK^{\top}}{\sqrt{d}} + \beta^{(\ell)} \right),
+  \qquad
+  \beta^{(\ell)}_{j} =
+  \begin{cases}
+    0      & j = 0 \quad (\texttt{CLS}), \\
+    a_\ell & j > 0,\; m_{j-1} = 1, \\
+    b_\ell & j > 0,\; m_{j-1} = 0.
+  \end{cases}
+  \label{eq:bias}
+\end{equation}
+
+Three properties make this a suitable analytical primitive. The bias is
+indexed by key and broadcast across all queries and heads, so every token
+--- including \texttt{CLS} as a query --- draws proportionally more
+information from within the region when $a_\ell > 0$ and less from outside
+when $b_\ell < 0$. It is exactly a multiplicative reweighting of attention
+mass by $\exp(\beta_j)$, so the control may be presented either as a logit
+bias or as a scale factor. And $a_\ell = b_\ell = 0$ is an exact no-op, so
+the reported baseline is the unmodified model rather than an approximation.
+The \texttt{CLS} key is never biased: as a summary token rather than a
+spatial patch, the interior/exterior distinction does not apply to it, and
+biasing it would confound the regional effect with a global rescaling of the
+summary pathway.
+Here, ``causal'' refers narrowly to the effect of this controlled operation on
+the model's computation; it does not by itself establish that a semantic object
+causes the prediction in the photographed world.
+
+\subsection{Mapping Regions to Patches}
+
+A region delineated on the original image cannot be transferred to the patch
+grid directly, since CLIP resizes the shorter side to $224$ pixels and then
+applies a centre crop. GeoProbe replicates this geometry on the region
+coordinates, so that a patch is marked in-region only if it remains so after
+preprocessing. Regions falling entirely outside the centre crop yield an
+empty mask and therefore an exact no-op. We retain these cases in the
+full-dataset results and additionally report the active-mask subset. Multiple
+regions are combined by union.
+
+\subsection{Prompt-Free Region Proposals}
+
+Manually delineated rectangles support targeted case studies, but they do
+not scale to a complete dataset and make the analysis depend on a
+user-supplied concept. For systematic evaluation, GeoProbe uses WeDetect-Uni,
+a universal proposal generator trained with a learned objectness prompt to
+retrieve category-agnostic foreground boxes~\cite{fu2026wedetect}. It
+therefore avoids the per-image text query required by grounded detectors such
+as Grounding DINO~\cite{liu2024grounding}. The detector
+never observes ground-truth coordinates. Proposals are computed once and
+cached; downstream layer searches only change the attention intervention, so
+every configuration receives identical regions.
+
+\subsection{Implementation}
+
+A FastAPI backend loads GeoCLIP once at startup and patches the eager
+attention forward pass of all $24$ vision layers according to
+Eq.~\ref{eq:bias}; a React frontend provides region selection, per-layer
+control and map display. One request returns both the unmodified and the
+intervened top-$k$ predictions, so the comparison presented to the user is
+always between two forward passes of identical weights. Manual rectangles
+are used in the live interaction, while cached WeDetect-Uni proposals provide
+the reproducible dataset-scale analysis reported below.

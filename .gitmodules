@@ -1,0 +1,3 @@
+[submodule "third_party/geo-clip"]
+	path = third_party/geo-clip
+	url = https://github.com/Le-Anh-Duy/geo-clip
