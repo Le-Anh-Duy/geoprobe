@@ -12,6 +12,14 @@ stable location.
 * `scripts/collect_results.py` → writes `tables/paper_table.csv` from
   `../results/*/per_image.csv`; `scripts/make_tables.py` renders it to LaTeX
 
+Mind the sign convention, which differs between the two:
+
+* the paper's `Δc` is `d_baseline - d_intervened`, so **positive is better**;
+* `paper_table.csv`'s `mean_error_delta_vs_baseline_km` is the error *increase*,
+  `d_intervened - d_baseline`, so **negative is better**.
+
+Both are correct for what their names say; they are not interchangeable.
+
 The current Table 1 comes from the per-layer discovery/holdout search, not from
 these scripts — see `../experiments/README.md`. The scripts are kept because
 they document the earlier full-dataset runs that are committed here.
