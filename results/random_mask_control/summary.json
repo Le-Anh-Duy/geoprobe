@@ -1,0 +1,226 @@
+{
+  "dataset": "lbgan2000/imgps3k-yfcc4k-cleaned",
+  "evaluated_images": 2997,
+  "active_mask_images": 2058,
+  "failed_images": 0,
+  "gpu": "Tesla T4",
+  "config": {
+    "layers": [
+      2,
+      7,
+      12
+    ],
+    "a": 0.6666666666666666,
+    "b": -0.6666666666666666,
+    "score_threshold": 0.4,
+    "proposal_top_k": 100,
+    "random_repeats": 5,
+    "seed": 42,
+    "clip_km": 2500.0,
+    "bootstrap_resamples": 10000,
+    "tf32": false
+  },
+  "baseline": {
+    "mean_distance_km": 1763.001499960349,
+    "median_distance_km": 241.78190985130797
+  },
+  "subsets": {
+    "active": {
+      "images": 2058,
+      "arms": {
+        "union": {
+          "mean_distance_km": 1807.9416794849685,
+          "median_distance_km": 286.7321488014737,
+          "mean_displacement_km": 258.0007300073641,
+          "mean_clipped_improvement_km": 2.8457110259487166,
+          "accuracy": {
+            "acc_1_km": 0.13313896987366375,
+            "acc_25_km": 0.3143828960155491,
+            "acc_200_km": 0.4620991253644315,
+            "acc_750_km": 0.6452866861030127,
+            "acc_2500_km": 0.8168124392614189
+          }
+        },
+        "shift": {
+          "mean_distance_km": 1797.0560816462848,
+          "median_distance_km": 301.2672332017412,
+          "mean_displacement_km": 248.38632360278703,
+          "mean_clipped_improvement_km": 9.093332026135489,
+          "accuracy": {
+            "acc_1_km": 0.12536443148688048,
+            "acc_25_km": 0.30369290573372204,
+            "acc_200_km": 0.45043731778425655,
+            "acc_750_km": 0.6399416909620991,
+            "acc_2500_km": 0.8090379008746356
+          }
+        },
+        "scatter": {
+          "mean_distance_km": 1824.558614487928,
+          "median_distance_km": 310.8522577078681,
+          "mean_displacement_km": 227.5223822069054,
+          "mean_clipped_improvement_km": -4.145103597514253,
+          "accuracy": {
+            "acc_1_km": 0.12487852283770651,
+            "acc_25_km": 0.29980563654033043,
+            "acc_200_km": 0.4484936831875607,
+            "acc_750_km": 0.6341107871720116,
+            "acc_2500_km": 0.8075801749271136
+          }
+        }
+      },
+      "contrasts": {
+        "delta": {
+          "union_vs_shift": {
+            "mean_difference_km": -10.885597838683704,
+            "ci95": [
+              -59.083044625844416,
+              36.32995626814865
+            ],
+            "significant": false
+          },
+          "union_vs_scatter": {
+            "mean_difference_km": 16.61693500295961,
+            "ci95": [
+              -30.50704319229525,
+              62.95801280303814
+            ],
+            "significant": false
+          },
+          "shift_vs_scatter": {
+            "mean_difference_km": 27.502532841643323,
+            "ci95": [
+              5.907285033276976,
+              49.7907849575415
+            ],
+            "significant": true
+          }
+        },
+        "displacement": {
+          "union_vs_shift": {
+            "mean_difference_km": 9.614406404577066,
+            "ci95": [
+              -45.58312046505587,
+              65.70415358158206
+            ],
+            "significant": false
+          },
+          "union_vs_scatter": {
+            "mean_difference_km": 30.478347800458717,
+            "ci95": [
+              -22.911474776889804,
+              85.27199146389577
+            ],
+            "significant": false
+          },
+          "shift_vs_scatter": {
+            "mean_difference_km": 20.863941395881657,
+            "ci95": [
+              -5.074406015471195,
+              47.22976767916057
+            ],
+            "significant": false
+          }
+        }
+      }
+    },
+    "holdout_active": {
+      "images": 1321,
+      "arms": {
+        "union": {
+          "mean_distance_km": 1773.6007589272122,
+          "median_distance_km": 261.17584934468994,
+          "mean_displacement_km": 275.18191192097726,
+          "mean_clipped_improvement_km": -5.316380123899723,
+          "accuracy": {
+            "acc_1_km": 0.13247539742619227,
+            "acc_25_km": 0.31794095382286147,
+            "acc_200_km": 0.47312641937925815,
+            "acc_750_km": 0.6555639666919001,
+            "acc_2500_km": 0.8168054504163512
+          }
+        },
+        "shift": {
+          "mean_distance_km": 1757.8578675985245,
+          "median_distance_km": 279.0783536543788,
+          "mean_displacement_km": 258.5225240825839,
+          "mean_clipped_improvement_km": 6.280608647016703,
+          "accuracy": {
+            "acc_1_km": 0.12490537471612415,
+            "acc_25_km": 0.3065859197577593,
+            "acc_200_km": 0.4610143830431491,
+            "acc_750_km": 0.6532929598788796,
+            "acc_2500_km": 0.8092354277062831
+          }
+        },
+        "scatter": {
+          "mean_distance_km": 1786.058908725174,
+          "median_distance_km": 300.72637904892935,
+          "mean_displacement_km": 230.8864180607591,
+          "mean_clipped_improvement_km": -10.174879159608214,
+          "accuracy": {
+            "acc_1_km": 0.12490537471612415,
+            "acc_25_km": 0.30582891748675245,
+            "acc_200_km": 0.4587433762301287,
+            "acc_750_km": 0.6472369417108251,
+            "acc_2500_km": 0.8077214231642695
+          }
+        }
+      },
+      "contrasts": {
+        "delta": {
+          "union_vs_shift": {
+            "mean_difference_km": -15.742891328687977,
+            "ci95": [
+              -75.99462271800442,
+              43.03219913801823
+            ],
+            "significant": false
+          },
+          "union_vs_scatter": {
+            "mean_difference_km": 12.458149797961644,
+            "ci95": [
+              -44.28571708497682,
+              69.13717574700803
+            ],
+            "significant": false
+          },
+          "shift_vs_scatter": {
+            "mean_difference_km": 28.201041126649628,
+            "ci95": [
+              1.1694511000256214,
+              54.89326718090679
+            ],
+            "significant": true
+          }
+        },
+        "displacement": {
+          "union_vs_shift": {
+            "mean_difference_km": 16.6593878383933,
+            "ci95": [
+              -53.541325689088836,
+              89.845299949527
+            ],
+            "significant": false
+          },
+          "union_vs_scatter": {
+            "mean_difference_km": 44.295493860218116,
+            "ci95": [
+              -21.72176879738686,
+              113.89809664965235
+            ],
+            "significant": false
+          },
+          "shift_vs_scatter": {
+            "mean_difference_km": 27.636106021824798,
+            "ci95": [
+              -5.790604949452636,
+              62.87323547441497
+            ],
+            "significant": false
+          }
+        }
+      }
+    }
+  },
+  "runtime_seconds": 1404.479623769
+}

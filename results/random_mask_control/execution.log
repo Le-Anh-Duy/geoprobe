@@ -1,0 +1,794 @@
+0.00s - Debugger warning: It seems that frozen modules are being used, which may
+0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off
+0.00s - to python to disable frozen modules.
+0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.
+0.00s - Debugger warning: It seems that frozen modules are being used, which may
+0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off
+0.00s - to python to disable frozen modules.
+0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.
+Tesla T4 2.11.0+cu128
+Cloning into '/kaggle/working/geoclip_source'...
+Cloning into '/kaggle/working/geoclip_source'...
+
+Cloning into '/kaggle/working/geoclip_source'...
+Note: switching to '976a3d494f43c5f43572348571ba38c28c7877b6'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c <new-branch-name>
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+HEAD is now at 976a3d4 update the repo for compability with transformer v5
+Note: switching to '976a3d494f43c5f43572348571ba38c28c7877b6'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c <new-branch-name>
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+HEAD is now at 976a3d4 update the repo for compability with transformer v5
+
+Note: switching to '976a3d494f43c5f43572348571ba38c28c7877b6'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c <new-branch-name>
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+HEAD is now at 976a3d4 update the repo for compability with transformer v5
+Writing /kaggle/working/eval_random_mask_control.py
+CONFIG {"a": 0.6666666666666666, "b": -0.6666666666666666, "dataset": "lbgan2000/imgps3k-yfcc4k-cleaned", "layers": "2,7,12", "max_images": 0, "random_repeats": 5, "seed": 42}
+GPU Tesla T4
+DATASET path=/kaggle/input/datasets/lbgan2000/imgps3k-yfcc4k-cleaned labeled_images=2997
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[transformers] The `use_fast` parameter is deprecated and will be removed in a future version. Use `backend="torchvision"` instead of `use_fast=True`, or `backend="pil"` instead of `use_fast=False`.
+
+[transformers] The `use_fast` parameter is deprecated and will be removed in a future version. Use `backend="torchvision"` instead of `use_fast=True`, or `backend="pil"` instead of `use_fast=False`.
+GEOCLIP_READY layers=[2, 7, 12]
+BASELINE 320/2997
+BASELINE 640/2997
+BASELINE 960/2997
+BASELINE 1280/2997
+BASELINE 1600/2997
+BASELINE 1920/2997
+BASELINE 2240/2997
+BASELINE 2560/2997
+BASELINE 2880/2997
+BASELINE 2997/2997
+BASELINE_DONE
+CHECKPOINT rows=25 path=/kaggle/working/img2gps3k_random_mask_control/per_image.csv
+PROGRESS 25/2997 elapsed=11.0s
+CHECKPOINT rows=50 path=/kaggle/working/img2gps3k_random_mask_control/per_image.csv
+PROGRESS 50/2997 elapsed=19.8s
+CHECKPOINT rows=75 path=/kaggle/working/img2gps3k_random_mask_control/per_image.csv
+PROGRESS 75/2997 elapsed=33.9s
+CHECKPOINT rows=100 path=/kaggle/working/img2gps3k_random_mask_control/per_image.csv
+PROGRESS 100/2997 elapsed=48.0s
+CHECKPOINT rows=125 path=/kaggle/working/img2gps3k_random_mask_control/per_image.csv
+PROGRESS 125/2997 elapsed=59.4s
+CHECKPOINT rows=150 path=/kaggle/working/img2gps3k_random_mask_control/per_image.csv
+PROGRESS 150/2997 elapsed=73.0s
+CHECKPOINT rows=175 path=/kaggle/working/img2gps3k_random_mask_control/per_image.csv
+PROGRESS 175/2997 elapsed=88.0s
+CHECKPOINT rows=200 path=/kaggle/working/img2gps3k_random_mask_control/per_image.csv
+PROGRESS 200/2997 elapsed=98.9s
+CHECKPOINT rows=225 path=/kaggle/working/img2gps3k_random_mask_control/per_image.csv
+PROGRESS 225/2997 elapsed=111.9s
+CHECKPOINT rows=250 path=/kaggle/working/img2gps3k_random_mask_control/per_image.csv
+PROGRESS 250/2997 elapsed=124.8s
+CHECKPOINT rows=275 path=/kaggle/working/img2gps3k_random_mask_control/per_image.csv
+PROGRESS 275/2997 elapsed=138.2s
+CHECKPOINT rows=300 path=/kaggle/working/img2gps3k_random_mask_control/per_image.csv
+PROGRESS 300/2997 elapsed=149.7s
+CHECKPOINT rows=325 path=/kaggle/working/img2gps3k_random_mask_control/per_image.csv
+PROGRESS 325/2997 elapsed=161.9s
+CHECKPOINT rows=350 path=/kaggle/working/img2gps3k_random_mask_control/per_image.csv
+PROGRESS 350/2997 elapsed=175.4s
+CHECKPOINT rows=375 path=/kaggle/working/img2gps3k_random_mask_control/per_image.csv
+PROGRESS 375/2997 elapsed=188.2s
+CHECKPOINT rows=400 path=/kaggle/working/img2gps3k_random_mask_control/per_image.csv
+PROGRESS 400/2997 elapsed=200.5s
+CHECKPOINT rows=425 path=/kaggle/working/img2gps3k_random_mask_control/per_image.csv
+PROGRESS 425/2997 elapsed=212.0s
+CHECKPOINT rows=450 path=/kaggle/working/img2gps3k_random_mask_control/per_image.csv
+PROGRESS 450/2997 elapsed=223.6s
+CHECKPOINT rows=475 path=/kaggle/working/img2gps3k_random_mask_control/per_image.csv
+PROGRESS 475/2997 elapsed=235.8s
+CHECKPOINT rows=500 path=/kaggle/working/img2gps3k_random_mask_control/per_image.csv
+PROGRESS 500/2997 elapsed=247.4s
+CHECKPOINT rows=525 path=/kaggle/working/img2gps3k_random_mask_control/per_image.csv
+PROGRESS 525/2997 elapsed=259.0s
+CHECKPOINT rows=550 path=/kaggle/working/img2gps3k_random_mask_control/per_image.csv
+PROGRESS 550/2997 elapsed=269.9s
+CHECKPOINT rows=575 path=/kaggle/working/img2gps3k_random_mask_control/per_image.csv
+PROGRESS 575/2997 elapsed=284.8s
+CHECKPOINT rows=600 path=/kaggle/working/img2gps3k_random_mask_control/per_image.csv
+PROGRESS 600/2997 elapsed=295.7s
+CHECKPOINT rows=625 path=/kaggle/working/img2gps3k_random_mask_control/per_image.csv
+PROGRESS 625/2997 elapsed=307.3s
+CHECKPOINT rows=650 path=/kaggle/working/img2gps3k_random_mask_control/per_image.csv
+PROGRESS 650/2997 elapsed=322.2s
+CHECKPOINT rows=675 path=/kaggle/working/img2gps3k_random_mask_control/per_image.csv
+PROGRESS 675/2997 elapsed=333.8s
+CHECKPOINT rows=700 path=/kaggle/working/img2gps3k_random_mask_control/per_image.csv
+PROGRESS 700/2997 elapsed=345.3s
+CHECKPOINT rows=725 path=/kaggle/working/img2gps3k_random_mask_control/per_image.csv
+PROGRESS 725/2997 elapsed=356.9s
+CHECKPOINT rows=750 path=/kaggle/working/img2gps3k_random_mask_control/per_image.csv
+PROGRESS 750/2997 elapsed=368.5s
+CHECKPOINT rows=775 path=/kaggle/working/img2gps3k_random_mask_control/per_image.csv
+PROGRESS 775/2997 elapsed=382.1s
+CHECKPOINT rows=800 path=/kaggle/working/img2gps3k_random_mask_control/per_image.csv
+PROGRESS 800/2997 elapsed=396.4s
+CHECKPOINT rows=825 path=/kaggle/working/img2gps3k_random_mask_control/per_image.csv
+PROGRESS 825/2997 elapsed=408.6s
+CHECKPOINT rows=850 path=/kaggle/working/img2gps3k_random_mask_control/per_image.csv
+PROGRESS 850/2997 elapsed=418.8s
+CHECKPOINT rows=875 path=/kaggle/working/img2gps3k_random_mask_control/per_image.csv
+PROGRESS 875/2997 elapsed=429.8s
+CHECKPOINT rows=900 path=/kaggle/working/img2gps3k_random_mask_control/per_image.csv
+PROGRESS 900/2997 elapsed=442.7s
+CHECKPOINT rows=925 path=/kaggle/working/img2gps3k_random_mask_control/per_image.csv
+PROGRESS 925/2997 elapsed=456.4s
+CHECKPOINT rows=950 path=/kaggle/working/img2gps3k_random_mask_control/per_image.csv
+PROGRESS 950/2997 elapsed=465.3s
+CHECKPOINT rows=975 path=/kaggle/working/img2gps3k_random_mask_control/per_image.csv
+PROGRESS 975/2997 elapsed=474.2s
+CHECKPOINT rows=1000 path=/kaggle/working/img2gps3k_random_mask_control/per_image.csv
+PROGRESS 1000/2997 elapsed=483.8s
+CHECKPOINT rows=1025 path=/kaggle/working/img2gps3k_random_mask_control/per_image.csv
+PROGRESS 1025/2997 elapsed=495.4s
+CHECKPOINT rows=1050 path=/kaggle/working/img2gps3k_random_mask_control/per_image.csv
+PROGRESS 1050/2997 elapsed=505.7s
+CHECKPOINT rows=1075 path=/kaggle/working/img2gps3k_random_mask_control/per_image.csv
+PROGRESS 1075/2997 elapsed=517.3s
+CHECKPOINT rows=1100 path=/kaggle/working/img2gps3k_random_mask_control/per_image.csv
+PROGRESS 1100/2997 elapsed=528.2s
+CHECKPOINT rows=1125 path=/kaggle/working/img2gps3k_random_mask_control/per_image.csv
+PROGRESS 1125/2997 elapsed=539.9s
+CHECKPOINT rows=1150 path=/kaggle/working/img2gps3k_random_mask_control/per_image.csv
+PROGRESS 1150/2997 elapsed=548.1s
+CHECKPOINT rows=1175 path=/kaggle/working/img2gps3k_random_mask_control/per_image.csv
+PROGRESS 1175/2997 elapsed=559.7s
+CHECKPOINT rows=1200 path=/kaggle/working/img2gps3k_random_mask_control/per_image.csv
+PROGRESS 1200/2997 elapsed=571.2s
+CHECKPOINT rows=1225 path=/kaggle/working/img2gps3k_random_mask_control/per_image.csv
+PROGRESS 1225/2997 elapsed=582.0s
+CHECKPOINT rows=1250 path=/kaggle/working/img2gps3k_random_mask_control/per_image.csv
+PROGRESS 1250/2997 elapsed=593.5s
+CHECKPOINT rows=1275 path=/kaggle/working/img2gps3k_random_mask_control/per_image.csv
+PROGRESS 1275/2997 elapsed=603.0s
+CHECKPOINT rows=1300 path=/kaggle/working/img2gps3k_random_mask_control/per_image.csv
+PROGRESS 1300/2997 elapsed=612.6s
+CHECKPOINT rows=1325 path=/kaggle/working/img2gps3k_random_mask_control/per_image.csv
+PROGRESS 1325/2997 elapsed=626.1s
+CHECKPOINT rows=1350 path=/kaggle/working/img2gps3k_random_mask_control/per_image.csv
+PROGRESS 1350/2997 elapsed=637.0s
+CHECKPOINT rows=1375 path=/kaggle/working/img2gps3k_random_mask_control/per_image.csv
+PROGRESS 1375/2997 elapsed=650.6s
+CHECKPOINT rows=1400 path=/kaggle/working/img2gps3k_random_mask_control/per_image.csv
+PROGRESS 1400/2997 elapsed=659.5s
+CHECKPOINT rows=1425 path=/kaggle/working/img2gps3k_random_mask_control/per_image.csv
+PROGRESS 1425/2997 elapsed=674.5s
+CHECKPOINT rows=1450 path=/kaggle/working/img2gps3k_random_mask_control/per_image.csv
+PROGRESS 1450/2997 elapsed=687.4s
+CHECKPOINT rows=1475 path=/kaggle/working/img2gps3k_random_mask_control/per_image.csv
+PROGRESS 1475/2997 elapsed=699.0s
+CHECKPOINT rows=1500 path=/kaggle/working/img2gps3k_random_mask_control/per_image.csv
+PROGRESS 1500/2997 elapsed=710.6s
+CHECKPOINT rows=1525 path=/kaggle/working/img2gps3k_random_mask_control/per_image.csv
+PROGRESS 1525/2997 elapsed=722.1s
+CHECKPOINT rows=1550 path=/kaggle/working/img2gps3k_random_mask_control/per_image.csv
+PROGRESS 1550/2997 elapsed=730.4s
+CHECKPOINT rows=1575 path=/kaggle/working/img2gps3k_random_mask_control/per_image.csv
+PROGRESS 1575/2997 elapsed=741.9s
+CHECKPOINT rows=1600 path=/kaggle/working/img2gps3k_random_mask_control/per_image.csv
+PROGRESS 1600/2997 elapsed=751.5s
+CHECKPOINT rows=1625 path=/kaggle/working/img2gps3k_random_mask_control/per_image.csv
+PROGRESS 1625/2997 elapsed=761.7s
+CHECKPOINT rows=1650 path=/kaggle/working/img2gps3k_random_mask_control/per_image.csv
+PROGRESS 1650/2997 elapsed=770.6s
+CHECKPOINT rows=1675 path=/kaggle/working/img2gps3k_random_mask_control/per_image.csv
+PROGRESS 1675/2997 elapsed=781.4s
+CHECKPOINT rows=1700 path=/kaggle/working/img2gps3k_random_mask_control/per_image.csv
+PROGRESS 1700/2997 elapsed=790.3s
+CHECKPOINT rows=1725 path=/kaggle/working/img2gps3k_random_mask_control/per_image.csv
+PROGRESS 1725/2997 elapsed=801.2s
+CHECKPOINT rows=1750 path=/kaggle/working/img2gps3k_random_mask_control/per_image.csv
+PROGRESS 1750/2997 elapsed=810.1s
+CHECKPOINT rows=1775 path=/kaggle/working/img2gps3k_random_mask_control/per_image.csv
+PROGRESS 1775/2997 elapsed=824.3s
+CHECKPOINT rows=1800 path=/kaggle/working/img2gps3k_random_mask_control/per_image.csv
+PROGRESS 1800/2997 elapsed=835.9s
+CHECKPOINT rows=1825 path=/kaggle/working/img2gps3k_random_mask_control/per_image.csv
+PROGRESS 1825/2997 elapsed=843.5s
+CHECKPOINT rows=1850 path=/kaggle/working/img2gps3k_random_mask_control/per_image.csv
+PROGRESS 1850/2997 elapsed=855.7s
+CHECKPOINT rows=1875 path=/kaggle/working/img2gps3k_random_mask_control/per_image.csv
+PROGRESS 1875/2997 elapsed=863.9s
+CHECKPOINT rows=1900 path=/kaggle/working/img2gps3k_random_mask_control/per_image.csv
+PROGRESS 1900/2997 elapsed=873.5s
+CHECKPOINT rows=1925 path=/kaggle/working/img2gps3k_random_mask_control/per_image.csv
+PROGRESS 1925/2997 elapsed=883.8s
+CHECKPOINT rows=1950 path=/kaggle/working/img2gps3k_random_mask_control/per_image.csv
+PROGRESS 1950/2997 elapsed=895.4s
+CHECKPOINT rows=1975 path=/kaggle/working/img2gps3k_random_mask_control/per_image.csv
+PROGRESS 1975/2997 elapsed=908.4s
+CHECKPOINT rows=2000 path=/kaggle/working/img2gps3k_random_mask_control/per_image.csv
+PROGRESS 2000/2997 elapsed=917.3s
+CHECKPOINT rows=2025 path=/kaggle/working/img2gps3k_random_mask_control/per_image.csv
+PROGRESS 2025/2997 elapsed=929.0s
+CHECKPOINT rows=2050 path=/kaggle/working/img2gps3k_random_mask_control/per_image.csv
+PROGRESS 2050/2997 elapsed=940.7s
+CHECKPOINT rows=2075 path=/kaggle/working/img2gps3k_random_mask_control/per_image.csv
+PROGRESS 2075/2997 elapsed=953.7s
+CHECKPOINT rows=2100 path=/kaggle/working/img2gps3k_random_mask_control/per_image.csv
+PROGRESS 2100/2997 elapsed=966.0s
+CHECKPOINT rows=2125 path=/kaggle/working/img2gps3k_random_mask_control/per_image.csv
+PROGRESS 2125/2997 elapsed=978.3s
+CHECKPOINT rows=2150 path=/kaggle/working/img2gps3k_random_mask_control/per_image.csv
+PROGRESS 2150/2997 elapsed=992.0s
+CHECKPOINT rows=2175 path=/kaggle/working/img2gps3k_random_mask_control/per_image.csv
+PROGRESS 2175/2997 elapsed=1005.0s
+CHECKPOINT rows=2200 path=/kaggle/working/img2gps3k_random_mask_control/per_image.csv
+PROGRESS 2200/2997 elapsed=1017.3s
+CHECKPOINT rows=2225 path=/kaggle/working/img2gps3k_random_mask_control/per_image.csv
+PROGRESS 2225/2997 elapsed=1029.0s
+CHECKPOINT rows=2250 path=/kaggle/working/img2gps3k_random_mask_control/per_image.csv
+PROGRESS 2250/2997 elapsed=1040.6s
+CHECKPOINT rows=2275 path=/kaggle/working/img2gps3k_random_mask_control/per_image.csv
+PROGRESS 2275/2997 elapsed=1049.6s
+CHECKPOINT rows=2300 path=/kaggle/working/img2gps3k_random_mask_control/per_image.csv
+PROGRESS 2300/2997 elapsed=1063.3s
+CHECKPOINT rows=2325 path=/kaggle/working/img2gps3k_random_mask_control/per_image.csv
+PROGRESS 2325/2997 elapsed=1072.2s
+CHECKPOINT rows=2350 path=/kaggle/working/img2gps3k_random_mask_control/per_image.csv
+PROGRESS 2350/2997 elapsed=1082.5s
+CHECKPOINT rows=2375 path=/kaggle/working/img2gps3k_random_mask_control/per_image.csv
+PROGRESS 2375/2997 elapsed=1096.8s
+CHECKPOINT rows=2400 path=/kaggle/working/img2gps3k_random_mask_control/per_image.csv
+PROGRESS 2400/2997 elapsed=1111.1s
+CHECKPOINT rows=2425 path=/kaggle/working/img2gps3k_random_mask_control/per_image.csv
+PROGRESS 2425/2997 elapsed=1124.8s
+CHECKPOINT rows=2450 path=/kaggle/working/img2gps3k_random_mask_control/per_image.csv
+PROGRESS 2450/2997 elapsed=1135.7s
+CHECKPOINT rows=2475 path=/kaggle/working/img2gps3k_random_mask_control/per_image.csv
+PROGRESS 2475/2997 elapsed=1146.6s
+CHECKPOINT rows=2500 path=/kaggle/working/img2gps3k_random_mask_control/per_image.csv
+PROGRESS 2500/2997 elapsed=1160.9s
+CHECKPOINT rows=2525 path=/kaggle/working/img2gps3k_random_mask_control/per_image.csv
+PROGRESS 2525/2997 elapsed=1171.9s
+CHECKPOINT rows=2550 path=/kaggle/working/img2gps3k_random_mask_control/per_image.csv
+PROGRESS 2550/2997 elapsed=1182.1s
+CHECKPOINT rows=2575 path=/kaggle/working/img2gps3k_random_mask_control/per_image.csv
+PROGRESS 2575/2997 elapsed=1194.4s
+CHECKPOINT rows=2600 path=/kaggle/working/img2gps3k_random_mask_control/per_image.csv
+PROGRESS 2600/2997 elapsed=1208.7s
+CHECKPOINT rows=2625 path=/kaggle/working/img2gps3k_random_mask_control/per_image.csv
+PROGRESS 2625/2997 elapsed=1219.7s
+CHECKPOINT rows=2650 path=/kaggle/working/img2gps3k_random_mask_control/per_image.csv
+PROGRESS 2650/2997 elapsed=1229.9s
+CHECKPOINT rows=2675 path=/kaggle/working/img2gps3k_random_mask_control/per_image.csv
+PROGRESS 2675/2997 elapsed=1240.8s
+CHECKPOINT rows=2700 path=/kaggle/working/img2gps3k_random_mask_control/per_image.csv
+PROGRESS 2700/2997 elapsed=1254.4s
+CHECKPOINT rows=2725 path=/kaggle/working/img2gps3k_random_mask_control/per_image.csv
+PROGRESS 2725/2997 elapsed=1264.7s
+CHECKPOINT rows=2750 path=/kaggle/working/img2gps3k_random_mask_control/per_image.csv
+PROGRESS 2750/2997 elapsed=1275.6s
+CHECKPOINT rows=2775 path=/kaggle/working/img2gps3k_random_mask_control/per_image.csv
+PROGRESS 2775/2997 elapsed=1287.8s
+CHECKPOINT rows=2800 path=/kaggle/working/img2gps3k_random_mask_control/per_image.csv
+PROGRESS 2800/2997 elapsed=1298.8s
+CHECKPOINT rows=2825 path=/kaggle/working/img2gps3k_random_mask_control/per_image.csv
+PROGRESS 2825/2997 elapsed=1313.0s
+CHECKPOINT rows=2850 path=/kaggle/working/img2gps3k_random_mask_control/per_image.csv
+PROGRESS 2850/2997 elapsed=1324.7s
+CHECKPOINT rows=2875 path=/kaggle/working/img2gps3k_random_mask_control/per_image.csv
+PROGRESS 2875/2997 elapsed=1339.1s
+CHECKPOINT rows=2900 path=/kaggle/working/img2gps3k_random_mask_control/per_image.csv
+PROGRESS 2900/2997 elapsed=1352.2s
+CHECKPOINT rows=2925 path=/kaggle/working/img2gps3k_random_mask_control/per_image.csv
+PROGRESS 2925/2997 elapsed=1364.5s
+CHECKPOINT rows=2950 path=/kaggle/working/img2gps3k_random_mask_control/per_image.csv
+PROGRESS 2950/2997 elapsed=1377.5s
+CHECKPOINT rows=2975 path=/kaggle/working/img2gps3k_random_mask_control/per_image.csv
+PROGRESS 2975/2997 elapsed=1392.4s
+CHECKPOINT rows=2997 path=/kaggle/working/img2gps3k_random_mask_control/per_image.csv
+PROGRESS 2997/2997 elapsed=1402.5s
+CHECKPOINT rows=2997 path=/kaggle/working/img2gps3k_random_mask_control/per_image.csv
+SUMMARY {
+  "dataset": "lbgan2000/imgps3k-yfcc4k-cleaned",
+  "evaluated_images": 2997,
+  "active_mask_images": 2058,
+  "failed_images": 0,
+  "gpu": "Tesla T4",
+  "config": {
+    "layers": [
+      2,
+      7,
+      12
+    ],
+    "a": 0.6666666666666666,
+    "b": -0.6666666666666666,
+    "score_threshold": 0.4,
+    "proposal_top_k": 100,
+    "random_repeats": 5,
+    "seed": 42,
+    "clip_km": 2500.0,
+    "bootstrap_resamples": 10000,
+    "tf32": false
+  },
+  "baseline": {
+    "mean_distance_km": 1763.001499960349,
+    "median_distance_km": 241.78190985130797
+  },
+  "subsets": {
+    "active": {
+      "images": 2058,
+      "arms": {
+        "union": {
+          "mean_distance_km": 1807.9416794849685,
+          "median_distance_km": 286.7321488014737,
+          "mean_displacement_km": 258.0007300073641,
+          "mean_clipped_improvement_km": 2.8457110259487166,
+          "accuracy": {
+            "acc_1_km": 0.13313896987366375,
+            "acc_25_km": 0.3143828960155491,
+            "acc_200_km": 0.4620991253644315,
+            "acc_750_km": 0.6452866861030127,
+            "acc_2500_km": 0.8168124392614189
+          }
+        },
+        "shift": {
+          "mean_distance_km": 1797.0560816462848,
+          "median_distance_km": 301.2672332017412,
+          "mean_displacement_km": 248.38632360278703,
+          "mean_clipped_improvement_km": 9.093332026135489,
+          "accuracy": {
+            "acc_1_km": 0.12536443148688048,
+            "acc_25_km": 0.30369290573372204,
+            "acc_200_km": 0.45043731778425655,
+            "acc_750_km": 0.6399416909620991,
+            "acc_2500_km": 0.8090379008746356
+          }
+        },
+        "scatter": {
+          "mean_distance_km": 1824.558614487928,
+          "median_distance_km": 310.8522577078681,
+          "mean_displacement_km": 227.5223822069054,
+          "mean_clipped_improvement_km": -4.145103597514253,
+          "accuracy": {
+            "acc_1_km": 0.12487852283770651,
+            "acc_25_km": 0.29980563654033043,
+            "acc_200_km": 0.4484936831875607,
+            "acc_750_km": 0.6341107871720116,
+            "acc_2500_km": 0.8075801749271136
+          }
+        }
+      },
+      "contrasts": {
+        "delta": {
+          "union_vs_shift": {
+            "mean_difference_km": -10.885597838683704,
+            "ci95": [
+              -59.083044625844416,
+              36.32995626814865
+            ],
+            "significant": false
+          },
+          "union_vs_scatter": {
+            "mean_difference_km": 16.61693500295961,
+            "ci95": [
+              -30.50704319229525,
+              62.95801280303814
+            ],
+            "significant": false
+          },
+          "shift_vs_scatter": {
+            "mean_difference_km": 27.502532841643323,
+            "ci95": [
+              5.907285033276976,
+              49.7907849575415
+            ],
+            "significant": true
+          }
+        },
+        "displacement": {
+          "union_vs_shift": {
+            "mean_difference_km": 9.614406404577066,
+            "ci95": [
+              -45.58312046505587,
+              65.70415358158206
+            ],
+            "significant": false
+          },
+          "union_vs_scatter": {
+            "mean_difference_km": 30.478347800458717,
+            "ci95": [
+              -22.911474776889804,
+              85.27199146389577
+            ],
+            "significant": false
+          },
+          "shift_vs_scatter": {
+            "mean_difference_km": 20.863941395881657,
+            "ci95": [
+              -5.074406015471195,
+              47.22976767916057
+            ],
+            "significant": false
+          }
+        }
+      }
+    },
+    "holdout_active": {
+      "images": 1321,
+      "arms": {
+        "union": {
+          "mean_distance_km": 1773.6007589272122,
+          "median_distance_km": 261.17584934468994,
+          "mean_displacement_km": 275.18191192097726,
+          "mean_clipped_improvement_km": -5.316380123899723,
+          "accuracy": {
+            "acc_1_km": 0.13247539742619227,
+            "acc_25_km": 0.31794095382286147,
+            "acc_200_km": 0.47312641937925815,
+            "acc_750_km": 0.6555639666919001,
+            "acc_2500_km": 0.8168054504163512
+          }
+        },
+        "shift": {
+          "mean_distance_km": 1757.8578675985245,
+          "median_distance_km": 279.0783536543788,
+          "mean_displacement_km": 258.5225240825839,
+          "mean_clipped_improvement_km": 6.280608647016703,
+          "accuracy": {
+            "acc_1_km": 0.12490537471612415,
+            "acc_25_km": 0.3065859197577593,
+            "acc_200_km": 0.4610143830431491,
+            "acc_750_km": 0.6532929598788796,
+            "acc_2500_km": 0.8092354277062831
+          }
+        },
+        "scatter": {
+          "mean_distance_km": 1786.058908725174,
+          "median_distance_km": 300.72637904892935,
+          "mean_displacement_km": 230.8864180607591,
+          "mean_clipped_improvement_km": -10.174879159608214,
+          "accuracy": {
+            "acc_1_km": 0.12490537471612415,
+            "acc_25_km": 0.30582891748675245,
+            "acc_200_km": 0.4587433762301287,
+            "acc_750_km": 0.6472369417108251,
+            "acc_2500_km": 0.8077214231642695
+          }
+        }
+      },
+      "contrasts": {
+        "delta": {
+          "union_vs_shift": {
+            "mean_difference_km": -15.742891328687977,
+            "ci95": [
+              -75.99462271800442,
+              43.03219913801823
+            ],
+            "significant": false
+          },
+          "union_vs_scatter": {
+            "mean_difference_km": 12.458149797961644,
+            "ci95": [
+              -44.28571708497682,
+              69.13717574700803
+            ],
+            "significant": false
+          },
+          "shift_vs_scatter": {
+            "mean_difference_km": 28.201041126649628,
+            "ci95": [
+              1.1694511000256214,
+              54.89326718090679
+            ],
+            "significant": true
+          }
+        },
+        "displacement": {
+          "union_vs_shift": {
+            "mean_difference_km": 16.6593878383933,
+            "ci95": [
+              -53.541325689088836,
+              89.845299949527
+            ],
+            "significant": false
+          },
+          "union_vs_scatter": {
+            "mean_difference_km": 44.295493860218116,
+            "ci95": [
+              -21.72176879738686,
+              113.89809664965235
+            ],
+            "significant": false
+          },
+          "shift_vs_scatter": {
+            "mean_difference_km": 27.636106021824798,
+            "ci95": [
+              -5.790604949452636,
+              62.87323547441497
+            ],
+            "significant": false
+          }
+        }
+      }
+    }
+  },
+  "runtime_seconds": 1404.479623769
+}
+
+Wrote /kaggle/working/img2gps3k_random_mask_control/per_image.csv
+Wrote /kaggle/working/img2gps3k_random_mask_control/summary.json
+{
+  "dataset": "lbgan2000/imgps3k-yfcc4k-cleaned",
+  "evaluated_images": 2997,
+  "active_mask_images": 2058,
+  "failed_images": 0,
+  "gpu": "Tesla T4",
+  "config": {
+    "layers": [
+      2,
+      7,
+      12
+    ],
+    "a": 0.6666666666666666,
+    "b": -0.6666666666666666,
+    "score_threshold": 0.4,
+    "proposal_top_k": 100,
+    "random_repeats": 5,
+    "seed": 42,
+    "clip_km": 2500.0,
+    "bootstrap_resamples": 10000,
+    "tf32": false
+  },
+  "baseline": {
+    "mean_distance_km": 1763.001499960349,
+    "median_distance_km": 241.78190985130797
+  },
+  "subsets": {
+    "active": {
+      "images": 2058,
+      "arms": {
+        "union": {
+          "mean_distance_km": 1807.9416794849685,
+          "median_distance_km": 286.7321488014737,
+          "mean_displacement_km": 258.0007300073641,
+          "mean_clipped_improvement_km": 2.8457110259487166,
+          "accuracy": {
+            "acc_1_km": 0.13313896987366375,
+            "acc_25_km": 0.3143828960155491,
+            "acc_200_km": 0.4620991253644315,
+            "acc_750_km": 0.6452866861030127,
+            "acc_2500_km": 0.8168124392614189
+          }
+        },
+        "shift": {
+          "mean_distance_km": 1797.0560816462848,
+          "median_distance_km": 301.2672332017412,
+          "mean_displacement_km": 248.38632360278703,
+          "mean_clipped_improvement_km": 9.093332026135489,
+          "accuracy": {
+            "acc_1_km": 0.12536443148688048,
+            "acc_25_km": 0.30369290573372204,
+            "acc_200_km": 0.45043731778425655,
+            "acc_750_km": 0.6399416909620991,
+            "acc_2500_km": 0.8090379008746356
+          }
+        },
+        "scatter": {
+          "mean_distance_km": 1824.558614487928,
+          "median_distance_km": 310.8522577078681,
+          "mean_displacement_km": 227.5223822069054,
+          "mean_clipped_improvement_km": -4.145103597514253,
+          "accuracy": {
+            "acc_1_km": 0.12487852283770651,
+            "acc_25_km": 0.29980563654033043,
+            "acc_200_km": 0.4484936831875607,
+            "acc_750_km": 0.6341107871720116,
+            "acc_2500_km": 0.8075801749271136
+          }
+        }
+      },
+      "contrasts": {
+        "delta": {
+          "union_vs_shift": {
+            "mean_difference_km": -10.885597838683704,
+            "ci95": [
+              -59.083044625844416,
+              36.32995626814865
+            ],
+            "significant": false
+          },
+          "union_vs_scatter": {
+            "mean_difference_km": 16.61693500295961,
+            "ci95": [
+              -30.50704319229525,
+              62.95801280303814
+            ],
+            "significant": false
+          },
+          "shift_vs_scatter": {
+            "mean_difference_km": 27.502532841643323,
+            "ci95": [
+              5.907285033276976,
+              49.7907849575415
+            ],
+            "significant": true
+          }
+        },
+        "displacement": {
+          "union_vs_shift": {
+            "mean_difference_km": 9.614406404577066,
+            "ci95": [
+              -45.58312046505587,
+              65.70415358158206
+            ],
+            "significant": false
+          },
+          "union_vs_scatter": {
+            "mean_difference_km": 30.478347800458717,
+            "ci95": [
+              -22.911474776889804,
+              85.27199146389577
+            ],
+            "significant": false
+          },
+          "shift_vs_scatter": {
+            "mean_difference_km": 20.863941395881657,
+            "ci95": [
+              -5.074406015471195,
+              47.22976767916057
+            ],
+            "significant": false
+          }
+        }
+      }
+    },
+    "holdout_active": {
+      "images": 1321,
+      "arms": {
+        "union": {
+          "mean_distance_km": 1773.6007589272122,
+          "median_distance_km": 261.17584934468994,
+          "mean_displacement_km": 275.18191192097726,
+          "mean_clipped_improvement_km": -5.316380123899723,
+          "accuracy": {
+            "acc_1_km": 0.13247539742619227,
+            "acc_25_km": 0.31794095382286147,
+            "acc_200_km": 0.47312641937925815,
+            "acc_750_km": 0.6555639666919001,
+            "acc_2500_km": 0.8168054504163512
+          }
+        },
+        "shift": {
+          "mean_distance_km": 1757.8578675985245,
+          "median_distance_km": 279.0783536543788,
+          "mean_displacement_km": 258.5225240825839,
+          "mean_clipped_improvement_km": 6.280608647016703,
+          "accuracy": {
+            "acc_1_km": 0.12490537471612415,
+            "acc_25_km": 0.3065859197577593,
+            "acc_200_km": 0.4610143830431491,
+            "acc_750_km": 0.6532929598788796,
+            "acc_2500_km": 0.8092354277062831
+          }
+        },
+        "scatter": {
+          "mean_distance_km": 1786.058908725174,
+          "median_distance_km": 300.72637904892935,
+          "mean_displacement_km": 230.8864180607591,
+          "mean_clipped_improvement_km": -10.174879159608214,
+          "accuracy": {
+            "acc_1_km": 0.12490537471612415,
+            "acc_25_km": 0.30582891748675245,
+            "acc_200_km": 0.4587433762301287,
+            "acc_750_km": 0.6472369417108251,
+            "acc_2500_km": 0.8077214231642695
+          }
+        }
+      },
+      "contrasts": {
+        "delta": {
+          "union_vs_shift": {
+            "mean_difference_km": -15.742891328687977,
+            "ci95": [
+              -75.99462271800442,
+              43.03219913801823
+            ],
+            "significant": false
+          },
+          "union_vs_scatter": {
+            "mean_difference_km": 12.458149797961644,
+            "ci95": [
+              -44.28571708497682,
+              69.13717574700803
+            ],
+            "significant": false
+          },
+          "shift_vs_scatter": {
+            "mean_difference_km": 28.201041126649628,
+            "ci95": [
+              1.1694511000256214,
+              54.89326718090679
+            ],
+            "significant": true
+          }
+        },
+        "displacement": {
+          "union_vs_shift": {
+            "mean_difference_km": 16.6593878383933,
+            "ci95": [
+              -53.541325689088836,
+              89.845299949527
+            ],
+            "significant": false
+          },
+          "union_vs_scatter": {
+            "mean_difference_km": 44.295493860218116,
+            "ci95": [
+              -21.72176879738686,
+              113.89809664965235
+            ],
+            "significant": false
+          },
+          "shift_vs_scatter": {
+            "mean_difference_km": 27.636106021824798,
+            "ci95": [
+              -5.790604949452636,
+              62.87323547441497
+            ],
+            "significant": false
+          }
+        }
+      }
+    }
+  },
+  "runtime_seconds": 1404.479623769
+}
+/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\|'
+  cells[i][c] = re.sub('\\\\\|', '|', cell)
+/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\_'
+  text = re.sub(r'_', '\_', text) # Escape underscores in display text
+[NbConvertApp] Converting notebook __notebook__.ipynb to notebook
+[NbConvertApp] Writing 192039 bytes to __notebook__.ipynb
+[NbConvertApp] Converting notebook __notebook__.ipynb to html
+[NbConvertApp] Writing 525144 bytes to __results__.html

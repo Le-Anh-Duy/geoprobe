@@ -13,6 +13,7 @@ strength change never changes the regions.
 | `eval_img2gps3k_wedetect_colab.py` | Full-dataset evaluation, written for `colab exec -f`. Exports WeDetect-Uni to ONNX inside the VM, checkpoints per image so an interrupted run resumes, and writes `summary.json` + `per_image.csv` |
 | `analyze_img2gps3k_wedetect.py` | Turns a run directory into `analysis/`: outcome distribution, proposal-count and geographic breakdowns |
 | `mask_area_control.py` | Relates mask coverage to prediction displacement -- the control reported at the end of Section 4. Stdlib only, no dependencies |
+| `eval_random_mask_control_colab.py` + `notebooks/random_mask_control_colab.ipynb` | Area-matched random-mask control on the exact Table 1 masks and configuration: WeDetect union vs. the same mask shifted elsewhere vs. the same patch count scattered. Paired bootstrap CIs for displacement and improvement. Results in [`../results/random_mask_control/`](../results/random_mask_control/README.md) |
 | `notebooks/geoclip_group_random_search_colab.ipynb` | Earlier random search over three contiguous layer groups (early 0–7, middle 8–15, late 16–23). Superseded by the per-layer search below; kept because it motivated it |
 | [`layer_search/`](layer_search/README.md) | Original notebooks/scripts for the discovery/holdout search reported in Table 1, plus CPU verification of the archived FP32 outputs |
 
