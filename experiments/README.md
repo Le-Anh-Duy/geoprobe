@@ -14,7 +14,7 @@ strength change never changes the regions.
 | `analyze_img2gps3k_wedetect.py` | Turns a run directory into `analysis/`: outcome distribution, proposal-count and geographic breakdowns |
 | `mask_area_control.py` | Relates mask coverage to prediction displacement -- the control reported at the end of Section 4. Stdlib only, no dependencies |
 | `notebooks/geoclip_group_random_search_colab.ipynb` | Earlier random search over three contiguous layer groups (early 0–7, middle 8–15, late 16–23). Superseded by the per-layer search below; kept because it motivated it |
-| `layer_search/` | The discovery/holdout per-layer search reported in the paper — **not yet committed**, see below |
+| [`layer_search/`](layer_search/README.md) | Original notebooks/scripts for the discovery/holdout search reported in Table 1, plus CPU verification of the archived FP32 outputs |
 
 ```bash
 python experiments/analyze_img2gps3k_wedetect.py \
@@ -61,7 +61,7 @@ key, and softmax is invariant to a constant shift, so the intervention cancels.
 `demo-images/README.md` shows the same effect on one image: a 208-patch region
 moves the prediction 0 km while a 56-patch region moves it 318 km.
 
-## Missing: the per-layer discovery/holdout search
+## Per-layer discovery/holdout search (Table 1)
 
 Section 4 and Table 1 of the paper report a different, later experiment:
 
@@ -80,13 +80,21 @@ Section 4 and Table 1 of the paper report a different, later experiment:
 Those proposal counts do not match the four committed runs above, so this
 search used its own cached proposals and cannot be reconstructed from them.
 
-To close the gap, add to `layer_search/`:
+The complete exported outputs are now archived in
+[`results/layer_search/`](../results/layer_search/README.md): the FP32 v3 run,
+cached proposals, earlier candidate-screening outputs and original execution
+logs. [`layer_search/`](layer_search/README.md) contains the source notebooks,
+Python exports and verification instructions. The archive includes all 83
+configurations, all three evaluation splits, per-image delta/shift/cosine
+arrays, explicit split assignments, model asset metadata and file checksums.
 
-1. the search notebook or script that ran on Colab/Kaggle;
-2. its cached proposal file (or the code path that regenerates it);
-3. the per-combination results table, keyed by layer subset and schedule, with
-   discovery and holdout scores;
-4. the split assignment, or the hash function that derives it from file names.
+Verify the archived metrics and regenerate Table 1 on a CPU:
 
-Until then the paper's claim that the implementation and experiment scripts are
-publicly available is only partly satisfied.
+```bash
+python -m pip install numpy pandas
+python experiments/layer_search/verify_results.py
+```
+
+The original FP32 export did not retain absolute per-image errors or predicted
+coordinates; the archive documents that limitation without reconstructing
+unavailable outputs from the earlier mixed-precision baseline.

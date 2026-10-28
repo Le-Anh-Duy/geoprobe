@@ -1,0 +1,88 @@
+[{"stream_name":"stderr","time":4.304476187,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":4.304501477,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":4.304503317,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":4.304504957,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stderr","time":4.6234571209999995,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":4.623478101,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":4.623479751,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":4.623480931,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stdout","time":12.9553698,"data":"HARDWARE NVIDIA RTX PRO 6000 Blackwell Server Edition (12, 0) 2.10.0+cu128 12.8\n"}
+,{"stream_name":"stdout","time":37.55145582,"data":"INPUT im2gps3k_places365.csv /kaggle/input/datasets/lbgan2000/imgps3k-yfcc4k-cleaned/test_set/im2gps3k_places365.csv\n"}
+,{"stream_name":"stdout","time":40.096586941,"data":"DATASET 2997 images\n"}
+,{"stream_name":"stdout","time":45.591767181,"data":"INPUT wedetect_base_uni.pth /kaggle/input/notebooks/giahuytran1/geoclip-detector-offline-assets/offline_assets/wedetect/wedetect_base_uni.pth\n"}
+,{"stream_name":"stdout","time":50.750510143,"data":"INPUT wedetect_anything/models.py /kaggle/input/notebooks/giahuytran1/geoclip-detector-offline-assets/wedetect-source/wedetect_anything/models.py\n"}
+,{"stream_name":"stdout","time":63.038370541,"data":"[detector] loaded weights from /kaggle/input/notebooks/giahuytran1/geoclip-detector-offline-assets/offline_assets/wedetect/wedetect_base_uni.pth: _IncompatibleKeys(missing_keys=[], unexpected_keys=['backbone.norm.weight', 'backbone.norm.bias', 'backbone.head.weight', 'backbone.head.bias'])\n"}
+,{"stream_name":"stderr","time":63.045123191,"data":"/usr/local/lib/python3.12/dist-packages/torch/functional.py:505: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at /pytorch/aten/src/ATen/native/TensorShape.cpp:4381.)\n"}
+,{"stream_name":"stderr","time":63.045133091,"data":"  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]\n"}
+,{"stream_name":"stderr","time":63.045134971,"data":"\n"}
+,{"stream_name":"stderr","time":63.045136141,"data":"/usr/local/lib/python3.12/dist-packages/torch/functional.py:505: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at /pytorch/aten/src/ATen/native/TensorShape.cpp:4381.)\n"}
+,{"stream_name":"stderr","time":63.045137551,"data":"  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]\n"}
+,{"stream_name":"stdout","time":69.310103199,"data":"CACHE 256/2997 elapsed=6.3s\n"}
+,{"stream_name":"stdout","time":70.374456236,"data":"CACHE 512/2997 elapsed=7.3s\n"}
+,{"stream_name":"stdout","time":71.425618792,"data":"CACHE 768/2997 elapsed=8.4s\n"}
+,{"stream_name":"stdout","time":72.475819338,"data":"CACHE 1024/2997 elapsed=9.4s\n"}
+,{"stream_name":"stdout","time":73.523157965,"data":"CACHE 1280/2997 elapsed=10.5s\n"}
+,{"stream_name":"stdout","time":74.573726721,"data":"CACHE 1536/2997 elapsed=11.5s\n"}
+,{"stream_name":"stdout","time":75.618630587,"data":"CACHE 1792/2997 elapsed=12.6s\n"}
+,{"stream_name":"stdout","time":76.662778834,"data":"CACHE 2048/2997 elapsed=13.6s\n"}
+,{"stream_name":"stdout","time":77.72924466,"data":"CACHE 2304/2997 elapsed=14.7s\n"}
+,{"stream_name":"stdout","time":78.781816206,"data":"CACHE 2560/2997 elapsed=15.7s\n"}
+,{"stream_name":"stdout","time":79.829152793,"data":"CACHE 2816/2997 elapsed=16.8s\n"}
+,{"stream_name":"stdout","time":82.846987672,"data":"CACHE 2997/2997 elapsed=19.8s\n"}
+,{"stream_name":"stdout","time":83.192800691,"data":"CACHE_COMPLETE\n"}
+,{"stream_name":"stdout","time":83.192811821,"data":"{\n"}
+,{"stream_name":"stdout","time":83.192813641,"data":"  \"dataset\": \"Img2GPS3K\",\n"}
+,{"stream_name":"stdout","time":83.192815151,"data":"  \"images\": 2997,\n"}
+,{"stream_name":"stdout","time":83.192816461,"data":"  \"gpu\": \"NVIDIA RTX PRO 6000 Blackwell Server Edition\",\n"}
+,{"stream_name":"stdout","time":83.192817731,"data":"  \"cache_threshold\": 0.15,\n"}
+,{"stream_name":"stdout","time":83.192818881,"data":"  \"nms_iou\": 0.7,\n"}
+,{"stream_name":"stdout","time":83.192819981,"data":"  \"top_k\": 100,\n"}
+,{"stream_name":"stdout","time":83.192820991,"data":"  \"elapsed_seconds\": 19.798285980999992,\n"}
+,{"stream_name":"stdout","time":83.192822201,"data":"  \"checkpoint_sha256\": \"e595578aeeb5f2a36cca383c23279cf7ea72e0bfb7c546dc39420359bf2d2c82\",\n"}
+,{"stream_name":"stdout","time":83.192823461,"data":"  \"counts\": {\n"}
+,{"stream_name":"stdout","time":83.192824561,"data":"    \"0.15\": {\n"}
+,{"stream_name":"stdout","time":83.192825711,"data":"      \"total\": 20264,\n"}
+,{"stream_name":"stdout","time":83.192826831,"data":"      \"mean\": 6.7614280947614285,\n"}
+,{"stream_name":"stdout","time":83.192827991,"data":"      \"median\": 4.0,\n"}
+,{"stream_name":"stdout","time":83.192829161,"data":"      \"max\": 85,\n"}
+,{"stream_name":"stdout","time":83.192830161,"data":"      \"images_with_proposals\": 2805\n"}
+,{"stream_name":"stdout","time":83.192831341,"data":"    },\n"}
+,{"stream_name":"stdout","time":83.192832391,"data":"    \"0.2\": {\n"}
+,{"stream_name":"stdout","time":83.192833491,"data":"      \"total\": 15579,\n"}
+,{"stream_name":"stdout","time":83.192834581,"data":"      \"mean\": 5.198198198198198,\n"}
+,{"stream_name":"stdout","time":83.192835721,"data":"      \"median\": 3.0,\n"}
+,{"stream_name":"stdout","time":83.192836711,"data":"      \"max\": 74,\n"}
+,{"stream_name":"stdout","time":83.192837811,"data":"      \"images_with_proposals\": 2715\n"}
+,{"stream_name":"stdout","time":83.192838941,"data":"    },\n"}
+,{"stream_name":"stdout","time":83.192839881,"data":"    \"0.3\": {\n"}
+,{"stream_name":"stdout","time":83.192840951,"data":"      \"total\": 9570,\n"}
+,{"stream_name":"stdout","time":83.192842081,"data":"      \"mean\": 3.1931931931931934,\n"}
+,{"stream_name":"stdout","time":83.192843081,"data":"      \"median\": 2.0,\n"}
+,{"stream_name":"stdout","time":83.192844191,"data":"      \"max\": 48,\n"}
+,{"stream_name":"stdout","time":83.192845251,"data":"      \"images_with_proposals\": 2415\n"}
+,{"stream_name":"stdout","time":83.192846291,"data":"    },\n"}
+,{"stream_name":"stdout","time":83.192848161,"data":"    \"0.4\": {\n"}
+,{"stream_name":"stdout","time":83.192849151,"data":"      \"total\": 6152,\n"}
+,{"stream_name":"stdout","time":83.192850141,"data":"      \"mean\": 2.0527193860527193,\n"}
+,{"stream_name":"stdout","time":83.192851141,"data":"      \"median\": 1.0,\n"}
+,{"stream_name":"stdout","time":83.192852111,"data":"      \"max\": 24,\n"}
+,{"stream_name":"stdout","time":83.192853101,"data":"      \"images_with_proposals\": 2081\n"}
+,{"stream_name":"stdout","time":83.192861651,"data":"    },\n"}
+,{"stream_name":"stdout","time":83.192862561,"data":"    \"0.5\": {\n"}
+,{"stream_name":"stdout","time":83.192863311,"data":"      \"total\": 3929,\n"}
+,{"stream_name":"stdout","time":83.192864061,"data":"      \"mean\": 1.3109776443109777,\n"}
+,{"stream_name":"stdout","time":83.192864791,"data":"      \"median\": 1.0,\n"}
+,{"stream_name":"stdout","time":83.192865551,"data":"      \"max\": 19,\n"}
+,{"stream_name":"stdout","time":83.192866291,"data":"      \"images_with_proposals\": 1682\n"}
+,{"stream_name":"stdout","time":83.192867101,"data":"    }\n"}
+,{"stream_name":"stdout","time":83.192867801,"data":"  }\n"}
+,{"stream_name":"stdout","time":83.192868521,"data":"}\n"}
+,{"stream_name":"stderr","time":87.215818016,"data":"/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":87.215839476,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":87.294428326,"data":"/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":87.294431016,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":87.625813265,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to notebook\n"}
+,{"stream_name":"stderr","time":87.759927864,"data":"[NbConvertApp] Writing 15995 bytes to __notebook__.ipynb\n"}
+,{"stream_name":"stderr","time":88.90790899,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to html\n"}
+,{"stream_name":"stderr","time":89.299977899,"data":"[NbConvertApp] Writing 327509 bytes to __results__.html\n"}
+]

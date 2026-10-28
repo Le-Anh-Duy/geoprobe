@@ -1,0 +1,40 @@
+{
+  "created_utc": "2026-09-06T15:19:25Z",
+  "elapsed_seconds": 118.81694158299999,
+  "sources": {
+    "grounding_dino": "IDEA-Research/grounding-dino-base",
+    "clip": "openai/clip-vit-large-patch14",
+    "geoclip_git": "https://github.com/VicenteVivan/geo-clip.git",
+    "wedetect_git": "https://github.com/WeChatCV/WeDetect.git",
+    "wedetect_commit": "dd302dba0069ace1b05816bafbc3fa1dbd6aa68c",
+    "wedetect_hf": "fushh7/WeDetect",
+    "wedetect_hf_commit": "125b98f6807eb3459b57a43497d220ae4096f5c7"
+  },
+  "torch": "2.10.0+cpu",
+  "files": {
+    "wedetect/wedetect_base_uni.pth": {
+      "bytes": 433889662,
+      "sha256": "e595578aeeb5f2a36cca383c23279cf7ea72e0bfb7c546dc39420359bf2d2c82"
+    },
+    "wedetect/wedetect_anything_base.onnx": {
+      "bytes": 1788739,
+      "sha256": "b9d69c7d69af04df6f6bf10e7dc0d15b61366835d4bf67efd4e48bf76f06c835"
+    },
+    "wedetect/wedetect_anything_base.onnx.data": {
+      "bytes": 429326336,
+      "sha256": "a6d45caacd8a5f1ccd142ba11cbc6f70ffd372c18491ace347c205fc387487ad"
+    },
+    "grounding-dino-base/config.json": {
+      "bytes": 1737,
+      "sha256": "eda416dae6f49419ff831b1c190ec430a060b19aae688dbaf2425a075b650608"
+    },
+    "clip-vit-large-patch14/config.json": {
+      "bytes": 4519,
+      "sha256": "8a09b467700c58138c29d53c605b34ebc69beaadd13274a8a2af8ad2c2f4032a"
+    },
+    "geo-clip/geoclip/model/weights/location_encoder_weights.pth": {
+      "bytes": 37806041,
+      "sha256": "94b80ae3af89fca78539e129dd2929d321247f5ceeeb0a31bc2c31041a253394"
+    }
+  }
+}

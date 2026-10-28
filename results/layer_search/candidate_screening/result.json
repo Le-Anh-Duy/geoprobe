@@ -1,0 +1,90 @@
+{
+  "gpu": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+  "images": 2997,
+  "discovery_images": 1079,
+  "holdout_images": 1918,
+  "wedetect_cache": {
+    "dataset": "Img2GPS3K",
+    "images": 2997,
+    "gpu": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+    "cache_threshold": 0.15,
+    "nms_iou": 0.7,
+    "top_k": 100,
+    "elapsed_seconds": 19.798285980999992,
+    "checkpoint_sha256": "e595578aeeb5f2a36cca383c23279cf7ea72e0bfb7c546dc39420359bf2d2c82",
+    "counts": {
+      "0.15": {
+        "total": 20264,
+        "mean": 6.7614280947614285,
+        "median": 4.0,
+        "max": 85,
+        "images_with_proposals": 2805
+      },
+      "0.2": {
+        "total": 15579,
+        "mean": 5.198198198198198,
+        "median": 3.0,
+        "max": 74,
+        "images_with_proposals": 2715
+      },
+      "0.3": {
+        "total": 9570,
+        "mean": 3.1931931931931934,
+        "median": 2.0,
+        "max": 48,
+        "images_with_proposals": 2415
+      },
+      "0.4": {
+        "total": 6152,
+        "mean": 2.0527193860527193,
+        "median": 1.0,
+        "max": 24,
+        "images_with_proposals": 2081
+      },
+      "0.5": {
+        "total": 3929,
+        "mean": 1.3109776443109777,
+        "median": 1.0,
+        "max": 19,
+        "images_with_proposals": 1682
+      }
+    }
+  },
+  "best_layer_discovery": 2,
+  "best_head_discovery": 5,
+  "selected_structured_config": "best_layer_all_heads",
+  "locked_holdout": {
+    "family": "structured",
+    "split": "holdout",
+    "config": "best_layer_all_heads",
+    "n": 1918,
+    "mean_error_km": 1976.6939697265625,
+    "median_error_km": 395.4411926269531,
+    "mean_delta_km": 7.463592052459717,
+    "clipped_mean_delta_km": 2.6023216247558594,
+    "win_rate": 0.034932221063607924,
+    "loss_rate": 0.04171011470281543,
+    "mean_shift_km": 141.0519561767578,
+    "mean_feature_cosine": 0.9991666674613953,
+    "acc_1_km": 0.005213764337851929,
+    "acc_25_km": 0.09749739311783108,
+    "acc_200_km": 0.36496350364963503,
+    "acc_750_km": 0.6225234619395204,
+    "acc_2500_km": 0.8044838373305526
+  },
+  "holdout_baseline": {
+    "mean_error_km": 1984.1574677638123,
+    "median_error_km": 390.1299331392148,
+    "acc_1_km": 0.005213764337851929,
+    "acc_25_km": 0.09854014598540146,
+    "acc_200_km": 0.367570385818561,
+    "acc_750_km": 0.6235662148070907,
+    "acc_2500_km": 0.8039624608967675
+  },
+  "signal_correlations": {
+    "head_attention_enrichment_vs_causal_delta": 0.39494958334461844,
+    "proposal_count_vs_best_layer_delta": -0.011747733517331065,
+    "baseline_margin_vs_intervention_shift": -0.05161706427735141
+  },
+  "elapsed_seconds": 481.214482518
+}

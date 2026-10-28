@@ -1,0 +1,14 @@
+{
+  "images": 2997,
+  "configurations": 83,
+  "summary_rows_verified": 249,
+  "selected_config": "linear_layers_02_07_12",
+  "paired_clipped_gain_km": 0.6358368992805481,
+  "paired_ci95_km": [
+    -16.832401943206786,
+    17.57088060379028
+  ],
+  "active_holdout_images": 1321,
+  "active_selected_clipped_delta_km": -5.316380023956299,
+  "baseline_mean_note": "Inferred from archived mean error + mean delta; no per-image FP32 baseline was exported."
+}

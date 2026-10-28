@@ -1,0 +1,132 @@
+{
+  "retrieved_on": "2026-10-28",
+  "source": "Kaggle authenticated API",
+  "kernels": [
+    {
+      "id": 133346751,
+      "ref": "giahuytran1/wedetect-geoclip-layer-synergy",
+      "title": "WeDetect GeoCLIP Layer Synergy",
+      "author": "Gia Huy Tr\u1ea7n",
+      "slug": "wedetect-geoclip-layer-synergy",
+      "lastRunTime": "2026-10-25T09:09:54.327Z",
+      "language": "python",
+      "kernelType": "notebook",
+      "isPrivate": true,
+      "enableGpu": true,
+      "enableInternet": false,
+      "categoryIds": [
+        "gpu"
+      ],
+      "datasetDataSources": [
+        "lbgan2000/imgps3k-yfcc4k-cleaned"
+      ],
+      "kernelDataSources": [
+        "giahuytran1/geoclip-detector-offline-assets",
+        "giahuytran1/wedetect-img2gps3k-cache",
+        "giahuytran1/wedetect-geoclip-signal-search"
+      ],
+      "competitionDataSources": [
+        "arc-prize-2026-arc-agi-3"
+      ],
+      "enableTpu": false,
+      "currentVersionNumber": 3,
+      "dockerImage": "gcr.io/kaggle-private-byod/python@sha256:37c64f7dd9c54116ecd1bcc88817c5469b88387388fade02bfa8bf3fc647d461",
+      "machineShape": "NvidiaRtxPro6000"
+    },
+    {
+      "id": 133333722,
+      "ref": "giahuytran1/wedetect-img2gps3k-cache",
+      "title": "WeDetect Img2GPS3K Cache",
+      "author": "Gia Huy Tr\u1ea7n",
+      "slug": "wedetect-img2gps3k-cache",
+      "lastRunTime": "2026-10-25T09:10:37.526Z",
+      "language": "python",
+      "kernelType": "notebook",
+      "isPrivate": true,
+      "enableGpu": true,
+      "enableInternet": false,
+      "categoryIds": [
+        "gpu"
+      ],
+      "datasetDataSources": [
+        "lbgan2000/imgps3k-yfcc4k-cleaned"
+      ],
+      "kernelDataSources": [
+        "giahuytran1/geoclip-detector-offline-assets"
+      ],
+      "competitionDataSources": [
+        "arc-prize-2026-arc-agi-3"
+      ],
+      "enableTpu": false,
+      "currentVersionNumber": 2,
+      "dockerImage": "gcr.io/kaggle-private-byod/python@sha256:37c64f7dd9c54116ecd1bcc88817c5469b88387388fade02bfa8bf3fc647d461",
+      "machineShape": "NvidiaRtxPro6000"
+    },
+    {
+      "id": 133341664,
+      "ref": "giahuytran1/wedetect-geoclip-signal-search",
+      "title": "WeDetect GeoCLIP Signal Search",
+      "author": "Gia Huy Tr\u1ea7n",
+      "slug": "wedetect-geoclip-signal-search",
+      "lastRunTime": "2026-10-25T09:10:44.644Z",
+      "language": "python",
+      "kernelType": "notebook",
+      "isPrivate": true,
+      "enableGpu": true,
+      "enableInternet": false,
+      "categoryIds": [
+        "gpu"
+      ],
+      "datasetDataSources": [
+        "lbgan2000/imgps3k-yfcc4k-cleaned"
+      ],
+      "kernelDataSources": [
+        "giahuytran1/geoclip-detector-offline-assets",
+        "giahuytran1/wedetect-img2gps3k-cache"
+      ],
+      "competitionDataSources": [
+        "arc-prize-2026-arc-agi-3"
+      ],
+      "enableTpu": false,
+      "currentVersionNumber": 1,
+      "dockerImage": "gcr.io/kaggle-private-byod/python@sha256:37c64f7dd9c54116ecd1bcc88817c5469b88387388fade02bfa8bf3fc647d461",
+      "machineShape": "NvidiaRtxPro6000"
+    },
+    {
+      "id": 133330263,
+      "ref": "giahuytran1/geoclip-detector-offline-assets",
+      "title": "GeoCLIP Detector Offline Assets",
+      "author": "Gia Huy Tr\u1ea7n",
+      "slug": "geoclip-detector-offline-assets",
+      "lastRunTime": "2026-10-25T09:11:27.258Z",
+      "language": "python",
+      "kernelType": "notebook",
+      "isPrivate": true,
+      "enableGpu": false,
+      "enableInternet": true,
+      "enableTpu": false,
+      "currentVersionNumber": 2,
+      "dockerImage": "gcr.io/kaggle-images/python@sha256:dafd4ce5668bbf1ad422e4c109e0f18c9623c3a7c7f48b0235f13142755c40b9",
+      "machineShape": "None"
+    }
+  ],
+  "fp32_output_session_id": 347899775,
+  "notes": [
+    "Raw output artifacts and logs were downloaded without modification.",
+    "Notebook sources are Kaggle source exports; execution output is retained separately in execution.log.",
+    "The FP32 NPZ stores per-image delta, shift and cosine for all 83 configurations, but the original run did not export per-image absolute errors, predicted coordinates or baseline embeddings.",
+    "Earlier mixed-precision screening outputs are retained only as inputs to candidate selection; their baseline must not be used as the FP32 baseline.",
+    "Kaggle metadata lastRunTime is copied verbatim from the API and is not treated as the original experiment date."
+  ],
+  "output_session_ids": {
+    "wedetect-geoclip-layer-synergy": [
+      347899775
+    ],
+    "wedetect-img2gps3k-cache": [
+      347741658
+    ],
+    "wedetect-geoclip-signal-search": [
+      347755409
+    ]
+  }
+}

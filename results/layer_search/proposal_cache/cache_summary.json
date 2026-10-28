@@ -1,0 +1,47 @@
+{
+  "dataset": "Img2GPS3K",
+  "images": 2997,
+  "gpu": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+  "cache_threshold": 0.15,
+  "nms_iou": 0.7,
+  "top_k": 100,
+  "elapsed_seconds": 19.798285980999992,
+  "checkpoint_sha256": "e595578aeeb5f2a36cca383c23279cf7ea72e0bfb7c546dc39420359bf2d2c82",
+  "counts": {
+    "0.15": {
+      "total": 20264,
+      "mean": 6.7614280947614285,
+      "median": 4.0,
+      "max": 85,
+      "images_with_proposals": 2805
+    },
+    "0.2": {
+      "total": 15579,
+      "mean": 5.198198198198198,
+      "median": 3.0,
+      "max": 74,
+      "images_with_proposals": 2715
+    },
+    "0.3": {
+      "total": 9570,
+      "mean": 3.1931931931931934,
+      "median": 2.0,
+      "max": 48,
+      "images_with_proposals": 2415
+    },
+    "0.4": {
+      "total": 6152,
+      "mean": 2.0527193860527193,
+      "median": 1.0,
+      "max": 24,
+      "images_with_proposals": 2081
+    },
+    "0.5": {
+      "total": 3929,
+      "mean": 1.3109776443109777,
+      "median": 1.0,
+      "max": 19,
+      "images_with_proposals": 1682
+    }
+  }
+}

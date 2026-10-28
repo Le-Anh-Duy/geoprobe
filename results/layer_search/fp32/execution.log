@@ -1,0 +1,168 @@
+[{"stream_name":"stderr","time":4.087685451,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":4.087713431,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":4.087715071,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":4.087716081,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stderr","time":4.392221631,"data":"0.00s - Debugger warning: It seems that frozen modules are being used, which may\n"}
+,{"stream_name":"stderr","time":4.392242281,"data":"0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off\n"}
+,{"stream_name":"stderr","time":4.3922442010000005,"data":"0.00s - to python to disable frozen modules.\n"}
+,{"stream_name":"stderr","time":4.392245731,"data":"0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.\n"}
+,{"stream_name":"stdout","time":21.496384511,"data":"HARDWARE NVIDIA RTX PRO 6000 Blackwell Server Edition (12, 0) 2.10.0+cu128 12.8\n"}
+,{"stream_name":"stdout","time":50.325656091,"data":"INPUT asset_manifest.json /kaggle/input/notebooks/giahuytran1/geoclip-detector-offline-assets/offline_assets/asset_manifest.json\n"}
+,{"stream_name":"stdout","time":57.851663016,"data":"INPUT proposals.jsonl /kaggle/input/notebooks/giahuytran1/wedetect-img2gps3k-cache/wedetect_img2gps3k_cache/proposals.jsonl\n"}
+,{"stream_name":"stdout","time":65.369440231,"data":"INPUT search_summary.csv /kaggle/input/notebooks/giahuytran1/wedetect-geoclip-signal-search/wedetect_geoclip_signal_search/search_summary.csv\n"}
+,{"stream_name":"stdout","time":65.688030711,"data":"INPUT search_arrays.npz /kaggle/input/notebooks/giahuytran1/wedetect-geoclip-signal-search/wedetect_geoclip_signal_search/search_arrays.npz\n"}
+,{"stream_name":"stdout","time":66.026599441,"data":"INPUT im2gps3k_places365.csv /kaggle/input/datasets/lbgan2000/imgps3k-yfcc4k-cleaned/test_set/im2gps3k_places365.csv\n"}
+,{"stream_name":"stdout","time":66.026610991,"data":"SPLIT {'all': 2997, 'discovery': 1079, 'holdout': 1918}\n"}
+,{"stream_name":"stdout","time":66.026612931,"data":"DISCOVERY_POSITIVE_LAYERS [2, 4, 7, 12, 3]\n"}
+,{"stream_name":"stdout","time":66.026614221,"data":"MASKS {'nonempty': 2058, 'mean_coverage': 0.3406570553779602}\n"}
+,{"stream_name":"stderr","time":68.752500577,"data":"CLIPModel LOAD REPORT from: /kaggle/input/notebooks/giahuytran1/geoclip-detector-offline-assets/offline_assets/clip-vit-large-patch14\n"}
+,{"stream_name":"stderr","time":68.752523387,"data":"Key                                  | Status     |  | \n"}
+,{"stream_name":"stderr","time":68.752525447,"data":"-------------------------------------+------------+--+-\n"}
+,{"stream_name":"stderr","time":68.752526937,"data":"vision_model.embeddings.position_ids | UNEXPECTED |  | \n"}
+,{"stream_name":"stderr","time":68.752528107,"data":"text_model.embeddings.position_ids   | UNEXPECTED |  | \n"}
+,{"stream_name":"stderr","time":68.752529267,"data":"\n"}
+,{"stream_name":"stderr","time":68.752530377,"data":"Notes:\n"}
+,{"stream_name":"stderr","time":68.752531497,"data":"- UNEXPECTED\t:can be ignored when loading from different task/architecture; not ok if you expect identical arch.\n"}
+,{"stream_name":"stderr","time":68.752532887,"data":"\n"}
+,{"stream_name":"stderr","time":68.752534027,"data":"CLIPModel LOAD REPORT from: /kaggle/input/notebooks/giahuytran1/geoclip-detector-offline-assets/offline_assets/clip-vit-large-patch14\n"}
+,{"stream_name":"stderr","time":68.752535237,"data":"Key                                  | Status     |  | \n"}
+,{"stream_name":"stderr","time":68.752544007,"data":"-------------------------------------+------------+--+-\n"}
+,{"stream_name":"stderr","time":68.752545037,"data":"vision_model.embeddings.position_ids | UNEXPECTED |  | \n"}
+,{"stream_name":"stderr","time":68.752546727,"data":"text_model.embeddings.position_ids   | UNEXPECTED |  | \n"}
+,{"stream_name":"stderr","time":68.752547697,"data":"\n"}
+,{"stream_name":"stderr","time":68.752548507,"data":"Notes:\n"}
+,{"stream_name":"stderr","time":68.752549337,"data":"- UNEXPECTED\t:can be ignored when loading from different task/architecture; not ok if you expect identical arch.\n"}
+,{"stream_name":"stdout","time":92.420043674,"data":"DETERMINISM_MAX_ABS_DIFF 0.0\n"}
+,{"stream_name":"stdout","time":156.342161,"data":"BASELINE_REPRODUCIBILITY {'mean_abs_error_difference_km': 1236.5213519812523, 'max_abs_error_difference_km': 18265.088198142763, 'changed_error_count': 2920}\n"}
+,{"stream_name":"stdout","time":156.34218311,"data":"CANDIDATES {'single_controls': 5, 'layer_combinations': 78}\n"}
+,{"stream_name":"stdout","time":156.535722508,"data":"SYNERGY 1/2997\n"}
+,{"stream_name":"stdout","time":228.570307449,"data":"SYNERGY 201/2997\n"}
+,{"stream_name":"stdout","time":300.756094217,"data":"SYNERGY 401/2997\n"}
+,{"stream_name":"stdout","time":372.862746381,"data":"SYNERGY 601/2997\n"}
+,{"stream_name":"stdout","time":445.01460967,"data":"SYNERGY 801/2997\n"}
+,{"stream_name":"stdout","time":517.327989576,"data":"SYNERGY 1001/2997\n"}
+,{"stream_name":"stdout","time":589.420770583,"data":"SYNERGY 1201/2997\n"}
+,{"stream_name":"stdout","time":661.538120699,"data":"SYNERGY 1401/2997\n"}
+,{"stream_name":"stdout","time":733.634772466,"data":"SYNERGY 1601/2997\n"}
+,{"stream_name":"stdout","time":805.713142478,"data":"SYNERGY 1801/2997\n"}
+,{"stream_name":"stdout","time":878.011383272,"data":"SYNERGY 2001/2997\n"}
+,{"stream_name":"stdout","time":950.199984619,"data":"SYNERGY 2201/2997\n"}
+,{"stream_name":"stdout","time":1022.423460749,"data":"SYNERGY 2401/2997\n"}
+,{"stream_name":"stdout","time":1094.692986128,"data":"SYNERGY 2601/2997\n"}
+,{"stream_name":"stdout","time":1166.901592354,"data":"SYNERGY 2801/2997\n"}
+,{"stream_name":"stdout","time":1238.822246887,"data":"{\n"}
+,{"stream_name":"stdout","time":1238.822265187,"data":"  \"gpu\": \"NVIDIA RTX PRO 6000 Blackwell Server Edition\",\n"}
+,{"stream_name":"stdout","time":1238.822267607,"data":"  \"images\": 2997,\n"}
+,{"stream_name":"stdout","time":1238.822268977,"data":"  \"discovery_images\": 1079,\n"}
+,{"stream_name":"stdout","time":1238.822270167,"data":"  \"holdout_images\": 1918,\n"}
+,{"stream_name":"stdout","time":1238.822271277,"data":"  \"positive_layers_discovery_ranked\": [\n"}
+,{"stream_name":"stdout","time":1238.822272547,"data":"    2,\n"}
+,{"stream_name":"stdout","time":1238.822273557,"data":"    4,\n"}
+,{"stream_name":"stdout","time":1238.822274737,"data":"    7,\n"}
+,{"stream_name":"stdout","time":1238.822275737,"data":"    12,\n"}
+,{"stream_name":"stdout","time":1238.822276857,"data":"    3\n"}
+,{"stream_name":"stdout","time":1238.822277827,"data":"  ],\n"}
+,{"stream_name":"stdout","time":1238.822278857,"data":"  \"evaluation_precision\": \"deterministic_fp32_no_tf32\",\n"}
+,{"stream_name":"stdout","time":1238.822280077,"data":"  \"determinism_max_abs_feature_difference\": 0.0,\n"}
+,{"stream_name":"stdout","time":1238.822281217,"data":"  \"single_control_count\": 5,\n"}
+,{"stream_name":"stdout","time":1238.822282287,"data":"  \"combination_candidate_count\": 78,\n"}
+,{"stream_name":"stdout","time":1238.822283367,"data":"  \"baseline_reproducibility\": {\n"}
+,{"stream_name":"stdout","time":1238.822288477,"data":"    \"mean_abs_error_difference_km\": 1236.5213519812523,\n"}
+,{"stream_name":"stdout","time":1238.822289497,"data":"    \"max_abs_error_difference_km\": 18265.088198142763,\n"}
+,{"stream_name":"stdout","time":1238.822290307,"data":"    \"changed_error_count\": 2920\n"}
+,{"stream_name":"stdout","time":1238.822291087,"data":"  },\n"}
+,{"stream_name":"stdout","time":1238.822291807,"data":"  \"selected_on_discovery\": {\n"}
+,{"stream_name":"stdout","time":1238.822292577,"data":"    \"split\": \"discovery\",\n"}
+,{"stream_name":"stdout","time":1238.822293407,"data":"    \"config\": \"linear_layers_02_07_12\",\n"}
+,{"stream_name":"stdout","time":1238.822294257,"data":"    \"kind\": \"layer_combination\",\n"}
+,{"stream_name":"stdout","time":1238.822295067,"data":"    \"layers\": \"2,7,12\",\n"}
+,{"stream_name":"stdout","time":1238.822295867,"data":"    \"layer_count\": 3,\n"}
+,{"stream_name":"stdout","time":1238.822296647,"data":"    \"scale\": \"linear\",\n"}
+,{"stream_name":"stdout","time":1238.822297437,"data":"    \"magnitude\": 0.6666666666666666,\n"}
+,{"stream_name":"stdout","time":1238.822298247,"data":"    \"n\": 1079,\n"}
+,{"stream_name":"stdout","time":1238.822299057,"data":"    \"mean_error_km\": 1807.1094970703125,\n"}
+,{"stream_name":"stdout","time":1238.822299997,"data":"    \"mean_delta_km\": 38.88131332397461,\n"}
+,{"stream_name":"stdout","time":1238.822300777,"data":"    \"clipped_mean_delta_km\": 11.936431884765625,\n"}
+,{"stream_name":"stdout","time":1238.822301587,"data":"    \"gain_over_best_constituent_km\": 6.987685203552246,\n"}
+,{"stream_name":"stdout","time":1238.822302427,"data":"    \"win_rate\": 0.056533827618164965,\n"}
+,{"stream_name":"stdout","time":1238.822303227,"data":"    \"loss_rate\": 0.05004633920296571,\n"}
+,{"stream_name":"stdout","time":1238.822304017,"data":"    \"mean_shift_km\": 155.19017028808594,\n"}
+,{"stream_name":"stdout","time":1238.822304897,"data":"    \"mean_feature_cosine\": 0.9983614087104797,\n"}
+,{"stream_name":"stdout","time":1238.822305687,"data":"    \"acc_1_km\": 0.12326227988878591,\n"}
+,{"stream_name":"stdout","time":1238.822306467,"data":"    \"acc_25_km\": 0.31047265987025024,\n"}
+,{"stream_name":"stdout","time":1238.822307227,"data":"    \"acc_200_km\": 0.4531974050046339,\n"}
+,{"stream_name":"stdout","time":1238.822308017,"data":"    \"acc_750_km\": 0.6478220574606117,\n"}
+,{"stream_name":"stdout","time":1238.822308987,"data":"    \"acc_2500_km\": 0.8211306765523633\n"}
+,{"stream_name":"stdout","time":1238.822309777,"data":"  },\n"}
+,{"stream_name":"stdout","time":1238.822310497,"data":"  \"locked_holdout\": {\n"}
+,{"stream_name":"stdout","time":1238.822311277,"data":"    \"split\": \"holdout\",\n"}
+,{"stream_name":"stdout","time":1238.822312097,"data":"    \"config\": \"linear_layers_02_07_12\",\n"}
+,{"stream_name":"stdout","time":1238.822312937,"data":"    \"kind\": \"layer_combination\",\n"}
+,{"stream_name":"stdout","time":1238.822313737,"data":"    \"layers\": \"2,7,12\",\n"}
+,{"stream_name":"stdout","time":1238.822314557,"data":"    \"layer_count\": 3,\n"}
+,{"stream_name":"stdout","time":1238.822315347,"data":"    \"scale\": \"linear\",\n"}
+,{"stream_name":"stdout","time":1238.822316137,"data":"    \"magnitude\": 0.6666666666666666,\n"}
+,{"stream_name":"stdout","time":1238.822316937,"data":"    \"n\": 1918,\n"}
+,{"stream_name":"stdout","time":1238.822317687,"data":"    \"mean_error_km\": 1728.8551025390625,\n"}
+,{"stream_name":"stdout","time":1238.822318447,"data":"    \"mean_delta_km\": -12.540340423583984,\n"}
+,{"stream_name":"stdout","time":1238.822319217,"data":"    \"clipped_mean_delta_km\": -3.6615946292877197,\n"}
+,{"stream_name":"stdout","time":1238.822321127,"data":"    \"gain_over_best_constituent_km\": -10.827126502990723,\n"}
+,{"stream_name":"stdout","time":1238.822321957,"data":"    \"win_rate\": 0.047966631908237745,\n"}
+,{"stream_name":"stdout","time":1238.822322777,"data":"    \"loss_rate\": 0.05213764337851929,\n"}
+,{"stream_name":"stdout","time":1238.822323537,"data":"    \"mean_shift_km\": 189.5283203125,\n"}
+,{"stream_name":"stdout","time":1238.822324297,"data":"    \"mean_feature_cosine\": 0.9984099268913269,\n"}
+,{"stream_name":"stdout","time":1238.822325077,"data":"    \"acc_1_km\": 0.13555787278415016,\n"}
+,{"stream_name":"stdout","time":1238.822325837,"data":"    \"acc_25_km\": 0.3284671532846715,\n"}
+,{"stream_name":"stdout","time":1238.822327327,"data":"    \"acc_200_km\": 0.4916579770594369,\n"}
+,{"stream_name":"stdout","time":1238.822328137,"data":"    \"acc_750_km\": 0.6730969760166841,\n"}
+,{"stream_name":"stdout","time":1238.822328907,"data":"    \"acc_2500_km\": 0.8274244004171012\n"}
+,{"stream_name":"stdout","time":1238.822329717,"data":"  },\n"}
+,{"stream_name":"stdout","time":1238.822330427,"data":"  \"locked_best_single_layer\": {\n"}
+,{"stream_name":"stdout","time":1238.822331207,"data":"    \"split\": \"holdout\",\n"}
+,{"stream_name":"stdout","time":1238.822332017,"data":"    \"config\": \"fixed_layers_02\",\n"}
+,{"stream_name":"stdout","time":1238.822332837,"data":"    \"kind\": \"single_control\",\n"}
+,{"stream_name":"stdout","time":1238.822333627,"data":"    \"layers\": \"2\",\n"}
+,{"stream_name":"stdout","time":1238.822334417,"data":"    \"layer_count\": 1,\n"}
+,{"stream_name":"stdout","time":1238.822335167,"data":"    \"scale\": \"fixed\",\n"}
+,{"stream_name":"stdout","time":1238.822335967,"data":"    \"magnitude\": 2.0,\n"}
+,{"stream_name":"stdout","time":1238.822336737,"data":"    \"n\": 1918,\n"}
+,{"stream_name":"stdout","time":1238.822337487,"data":"    \"mean_error_km\": 1731.4393310546875,\n"}
+,{"stream_name":"stdout","time":1238.822338287,"data":"    \"mean_delta_km\": -15.124689102172852,\n"}
+,{"stream_name":"stdout","time":1238.822339087,"data":"    \"clipped_mean_delta_km\": -4.297431468963623,\n"}
+,{"stream_name":"stdout","time":1238.822339887,"data":"    \"gain_over_best_constituent_km\": 0.0,\n"}
+,{"stream_name":"stdout","time":1238.822340677,"data":"    \"win_rate\": 0.034932221063607924,\n"}
+,{"stream_name":"stdout","time":1238.822341457,"data":"    \"loss_rate\": 0.0370177267987487,\n"}
+,{"stream_name":"stdout","time":1238.822342267,"data":"    \"mean_shift_km\": 136.14791870117188,\n"}
+,{"stream_name":"stdout","time":1238.822343027,"data":"    \"mean_feature_cosine\": 0.999279797077179,\n"}
+,{"stream_name":"stdout","time":1238.822343807,"data":"    \"acc_1_km\": 0.13555787278415016,\n"}
+,{"stream_name":"stdout","time":1238.822344577,"data":"    \"acc_25_km\": 0.3295099061522419,\n"}
+,{"stream_name":"stdout","time":1238.822345337,"data":"    \"acc_200_km\": 0.49739311783107404,\n"}
+,{"stream_name":"stdout","time":1238.822346107,"data":"    \"acc_750_km\": 0.6746611053180396,\n"}
+,{"stream_name":"stdout","time":1238.822346877,"data":"    \"acc_2500_km\": 0.8258602711157456\n"}
+,{"stream_name":"stdout","time":1238.822347647,"data":"  },\n"}
+,{"stream_name":"stdout","time":1238.822348377,"data":"  \"locked_synergy_minus_single_clipped_km\": 0.6358368992805481,\n"}
+,{"stream_name":"stdout","time":1238.822349227,"data":"  \"locked_synergy_delta_ci95_km\": [\n"}
+,{"stream_name":"stdout","time":1238.822350037,"data":"    -55.10756826400757,\n"}
+,{"stream_name":"stdout","time":1238.822350827,"data":"    28.631617498397805\n"}
+,{"stream_name":"stdout","time":1238.822352637,"data":"  ],\n"}
+,{"stream_name":"stdout","time":1238.822353377,"data":"  \"locked_synergy_clipped_delta_ci95_km\": [\n"}
+,{"stream_name":"stdout","time":1238.822354187,"data":"    -20.427746391296388,\n"}
+,{"stream_name":"stdout","time":1238.822354937,"data":"    12.402577471733089\n"}
+,{"stream_name":"stdout","time":1238.822355707,"data":"  ],\n"}
+,{"stream_name":"stdout","time":1238.822356447,"data":"  \"locked_synergy_minus_single_ci95_km\": [\n"}
+,{"stream_name":"stdout","time":1238.822357217,"data":"    -16.832401943206786,\n"}
+,{"stream_name":"stdout","time":1238.822357957,"data":"    17.57088060379028\n"}
+,{"stream_name":"stdout","time":1238.822358727,"data":"  ],\n"}
+,{"stream_name":"stdout","time":1238.822359457,"data":"  \"elapsed_seconds\": 1081.9357872730002\n"}
+,{"stream_name":"stdout","time":1238.822360287,"data":"}\n"}
+,{"stream_name":"stderr","time":1243.513204661,"data":"/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":1243.513221931,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":1243.592458031,"data":"/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":1243.592464071,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":1243.927556871,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to notebook\n"}
+,{"stream_name":"stderr","time":1244.064638171,"data":"[NbConvertApp] Writing 162016 bytes to __notebook__.ipynb\n"}
+,{"stream_name":"stderr","time":1245.227159592,"data":"[NbConvertApp] Converting notebook __notebook__.ipynb to html\n"}
+,{"stream_name":"stderr","time":1245.646882113,"data":"[NbConvertApp] Support files will be in __results___files/\n"}
+,{"stream_name":"stderr","time":1245.646894913,"data":"[NbConvertApp] Making directory __results___files\n"}
+,{"stream_name":"stderr","time":1245.647036683,"data":"[NbConvertApp] Writing 412314 bytes to __results__.html\n"}
+]

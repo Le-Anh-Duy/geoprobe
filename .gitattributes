@@ -1,0 +1,3 @@
+# Preserve the archived bytes and their SHA-256 hashes on every platform.
+experiments/layer_search/** -text
+results/layer_search/** -text
