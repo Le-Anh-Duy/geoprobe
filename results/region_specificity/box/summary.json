@@ -1,0 +1,209 @@
+{
+  "mode": "box",
+  "config": {
+    "layers": [
+      2
+    ],
+    "a": -2.0,
+    "b": 0.0,
+    "repeats": 5,
+    "seed": 42,
+    "score_threshold": 0.4,
+    "object_threshold": 0.15,
+    "proposal_top_k": 100,
+    "clip_km": 2500.0,
+    "tf32": false,
+    "bootstrap_resamples": 10000
+  },
+  "gpu": "Tesla T4",
+  "evaluated_images": 2997,
+  "units_skipped_no_background": 3334,
+  "baseline_mean_distance_km_all_images": 1763.001499960349,
+  "subsets": {
+    "all": {
+      "images": 899,
+      "units": 2314,
+      "baseline_mean_distance_km": 1579.2480654430747,
+      "arms": {
+        "background": {
+          "draws": 11078,
+          "mean_one_minus_cosine": 4.670978410296932e-05,
+          "mean_changed": 0.01552626827947283,
+          "mean_displacement_km": 20.11472490165716,
+          "mean_delta_km": -3.7007938455741063,
+          "mean_clipped_delta_km": 0.46347868558921956,
+          "median_displacement_km": 0.0,
+          "mean_distance_km": 1702.0869507505834,
+          "median_distance_km": 210.46508405904726,
+          "accuracy": {
+            "acc_1_km": 0.12032857916591443,
+            "acc_25_km": 0.3191009207438166,
+            "acc_200_km": 0.4950352049106337,
+            "acc_750_km": 0.6751218631521936,
+            "acc_2500_km": 0.8322801949810436
+          }
+        },
+        "target": {
+          "draws": 2314,
+          "mean_one_minus_cosine": 6.487468449123584e-05,
+          "mean_changed": 0.024632670700086432,
+          "mean_displacement_km": 28.345849049028512,
+          "mean_delta_km": 1.5611201789391527,
+          "mean_clipped_delta_km": -0.5284923354648947,
+          "median_displacement_km": 0.0,
+          "mean_distance_km": 1691.7302942379513,
+          "median_distance_km": 216.04889232555604,
+          "accuracy": {
+            "acc_1_km": 0.11927398444252377,
+            "acc_25_km": 0.3184961106309421,
+            "acc_200_km": 0.49222126188418325,
+            "acc_750_km": 0.6745894554883319,
+            "acc_2500_km": 0.8327571305099395
+          }
+        }
+      },
+      "contrasts": {
+        "target_vs_background": {
+          "one_minus_cosine": {
+            "mean_difference": 3.272469129824166e-05,
+            "ci95": [
+              2.2941292115609933e-05,
+              4.3739162046684884e-05
+            ],
+            "significant": true,
+            "images": 899
+          },
+          "changed": {
+            "mean_difference": 0.012843708016121808,
+            "ci95": [
+              0.004114248515666758,
+              0.022323617752288485
+            ],
+            "significant": true,
+            "images": 899
+          },
+          "displacement_km": {
+            "mean_difference": 25.134137941600347,
+            "ci95": [
+              2.9924945861703325,
+              53.62937711062852
+            ],
+            "significant": true,
+            "images": 899
+          },
+          "delta_km": {
+            "mean_difference": -4.035161269470762,
+            "ci95": [
+              -27.058628440294214,
+              17.342566874091798
+            ],
+            "significant": false,
+            "images": 899
+          },
+          "clipped_delta_km": {
+            "mean_difference": -4.099433935936163,
+            "ci95": [
+              -15.065316038101871,
+              6.105159805230162
+            ],
+            "significant": false,
+            "images": 899
+          }
+        }
+      }
+    },
+    "holdout": {
+      "images": 582,
+      "units": 1415,
+      "baseline_mean_distance_km": 1565.7210395962654,
+      "arms": {
+        "background": {
+          "draws": 6798,
+          "mean_one_minus_cosine": 4.8830118835866716e-05,
+          "mean_changed": 0.014710208884966167,
+          "mean_displacement_km": 17.264249017249917,
+          "mean_delta_km": 1.7559837108301999,
+          "mean_clipped_delta_km": 1.8577325979399626,
+          "median_displacement_km": 0.0,
+          "mean_distance_km": 1555.0839177146963,
+          "median_distance_km": 216.08985791198322,
+          "accuracy": {
+            "acc_1_km": 0.11974110032362459,
+            "acc_25_km": 0.3103854074727861,
+            "acc_200_km": 0.49588114151220947,
+            "acc_750_km": 0.6975581053250957,
+            "acc_2500_km": 0.8493674610179465
+          }
+        },
+        "target": {
+          "draws": 1415,
+          "mean_one_minus_cosine": 6.854622608360048e-05,
+          "mean_changed": 0.023321554770318022,
+          "mean_displacement_km": 27.452019743402854,
+          "mean_delta_km": -4.234986485370142,
+          "mean_clipped_delta_km": -1.8253932768007453,
+          "median_displacement_km": 0.0,
+          "mean_distance_km": 1562.184789192247,
+          "median_distance_km": 218.32999145430176,
+          "accuracy": {
+            "acc_1_km": 0.11872791519434629,
+            "acc_25_km": 0.30954063604240284,
+            "acc_200_km": 0.49187279151943464,
+            "acc_750_km": 0.6968197879858657,
+            "acc_2500_km": 0.8487632508833922
+          }
+        }
+      },
+      "contrasts": {
+        "target_vs_background": {
+          "one_minus_cosine": {
+            "mean_difference": 3.4696676034154676e-05,
+            "ci95": [
+              2.220603181022847e-05,
+              4.787049314665746e-05
+            ],
+            "significant": true,
+            "images": 582
+          },
+          "changed": {
+            "mean_difference": 0.012067583046964491,
+            "ci95": [
+              0.0012369702176403211,
+              0.023574026345933558
+            ],
+            "significant": true,
+            "images": 582
+          },
+          "displacement_km": {
+            "mean_difference": 20.314200663959767,
+            "ci95": [
+              0.4030994063754174,
+              51.76571235538916
+            ],
+            "significant": true,
+            "images": 582
+          },
+          "delta_km": {
+            "mean_difference": -11.457609002257296,
+            "ci95": [
+              -36.546790088278804,
+              6.564016351077022
+            ],
+            "significant": false,
+            "images": 582
+          },
+          "clipped_delta_km": {
+            "mean_difference": -6.4716065259506665,
+            "ci95": [
+              -18.89766320277692,
+              4.399375141922865
+            ],
+            "significant": false,
+            "images": 582
+          }
+        }
+      }
+    }
+  },
+  "runtime_seconds": 751.9020041709996
+}

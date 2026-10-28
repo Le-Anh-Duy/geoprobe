@@ -1,0 +1,435 @@
+{
+  "mode": "union",
+  "config": {
+    "layers": [
+      2,
+      7,
+      12
+    ],
+    "a": 0.6666666666666666,
+    "b": -0.6666666666666666,
+    "repeats": 5,
+    "seed": 42,
+    "score_threshold": 0.4,
+    "object_threshold": 0.15,
+    "proposal_top_k": 100,
+    "clip_km": 2500.0,
+    "tf32": false,
+    "bootstrap_resamples": 10000
+  },
+  "gpu": "Tesla T4",
+  "evaluated_images": 2997,
+  "units_skipped_no_background": 0,
+  "baseline_mean_distance_km_all_images": 1763.001499960349,
+  "subsets": {
+    "all": {
+      "images": 2058,
+      "units": 2058,
+      "baseline_mean_distance_km": 1816.6397187547063,
+      "arms": {
+        "scatter": {
+          "draws": 10290,
+          "mean_one_minus_cosine": 0.0015834014953283342,
+          "mean_changed": 0.12779397473275025,
+          "mean_displacement_km": 227.52237657824273,
+          "mean_delta_km": -7.918899008520223,
+          "mean_clipped_delta_km": -1.857443695238002,
+          "median_displacement_km": 0.0,
+          "mean_distance_km": 1824.5586177632267,
+          "median_distance_km": 286.81548992748066,
+          "accuracy": {
+            "acc_1_km": 0.1314868804664723,
+            "acc_25_km": 0.3141885325558795,
+            "acc_200_km": 0.462779397473275,
+            "acc_750_km": 0.6463556851311953,
+            "acc_2500_km": 0.8137998056365403
+          }
+        },
+        "shift": {
+          "draws": 10290,
+          "mean_one_minus_cosine": 0.002039937369445786,
+          "mean_changed": 0.14528668610301262,
+          "mean_displacement_km": 248.38632360278706,
+          "mean_delta_km": 19.583637108421907,
+          "mean_clipped_delta_km": 5.480776451397943,
+          "median_displacement_km": 0.0,
+          "mean_distance_km": 1797.0560816462848,
+          "median_distance_km": 276.5438688276758,
+          "accuracy": {
+            "acc_1_km": 0.13275024295432458,
+            "acc_25_km": 0.31700680272108844,
+            "acc_200_km": 0.46598639455782315,
+            "acc_750_km": 0.6510204081632653,
+            "acc_2500_km": 0.8151603498542274
+          }
+        },
+        "target": {
+          "draws": 2058,
+          "mean_one_minus_cosine": 0.002341030435265559,
+          "mean_changed": 0.1491739552964043,
+          "mean_displacement_km": 258.0007300073641,
+          "mean_delta_km": 8.69803926973819,
+          "mean_clipped_delta_km": 2.8457110259487166,
+          "median_displacement_km": 0.0,
+          "mean_distance_km": 1807.9416794849685,
+          "median_distance_km": 286.7321488014737,
+          "accuracy": {
+            "acc_1_km": 0.13313896987366375,
+            "acc_25_km": 0.3143828960155491,
+            "acc_200_km": 0.4620991253644315,
+            "acc_750_km": 0.6452866861030127,
+            "acc_2500_km": 0.8168124392614189
+          }
+        }
+      },
+      "contrasts": {
+        "target_vs_shift": {
+          "one_minus_cosine": {
+            "mean_difference": 0.00030109306581977275,
+            "ci95": [
+              0.0002473773441636759,
+              0.000356115705620559
+            ],
+            "significant": true,
+            "images": 2058
+          },
+          "changed": {
+            "mean_difference": 0.003887269193391642,
+            "ci95": [
+              -0.009329446064139942,
+              0.017103984450923225
+            ],
+            "significant": false,
+            "images": 2058
+          },
+          "displacement_km": {
+            "mean_difference": 9.614406404577059,
+            "ci95": [
+              -45.58312046505587,
+              65.70415358158205
+            ],
+            "significant": false,
+            "images": 2058
+          },
+          "delta_km": {
+            "mean_difference": -10.885597838683717,
+            "ci95": [
+              -59.08304462584442,
+              36.32995626814864
+            ],
+            "significant": false,
+            "images": 2058
+          },
+          "clipped_delta_km": {
+            "mean_difference": -2.6350654254492247,
+            "ci95": [
+              -18.789936550450086,
+              13.515831500789114
+            ],
+            "significant": false,
+            "images": 2058
+          }
+        },
+        "target_vs_scatter": {
+          "one_minus_cosine": {
+            "mean_difference": 0.0007576289399372246,
+            "ci95": [
+              0.000700356226533912,
+              0.0008186299117070244
+            ],
+            "significant": true,
+            "images": 2058
+          },
+          "changed": {
+            "mean_difference": 0.021379980563654033,
+            "ci95": [
+              0.00826044703595724,
+              0.034499514091350825
+            ],
+            "significant": true,
+            "images": 2058
+          },
+          "displacement_km": {
+            "mean_difference": 30.478353429121352,
+            "ci95": [
+              -22.911474354740108,
+              85.27199723327497
+            ],
+            "significant": false,
+            "images": 2058
+          },
+          "delta_km": {
+            "mean_difference": 16.616938278258417,
+            "ci95": [
+              -30.507043110412784,
+              62.95801280303814
+            ],
+            "significant": false,
+            "images": 2058
+          },
+          "clipped_delta_km": {
+            "mean_difference": 4.703154721186719,
+            "ci95": [
+              -10.685167673089548,
+              20.538036064251248
+            ],
+            "significant": false,
+            "images": 2058
+          }
+        },
+        "shift_vs_scatter": {
+          "one_minus_cosine": {
+            "mean_difference": 0.00045653587411745186,
+            "ci95": [
+              0.0004234045573064028,
+              0.0004893739085619143
+            ],
+            "significant": true,
+            "images": 2058
+          },
+          "changed": {
+            "mean_difference": 0.01749271137026239,
+            "ci95": [
+              0.010201652089407192,
+              0.024975704567541303
+            ],
+            "significant": true,
+            "images": 2058
+          },
+          "displacement_km": {
+            "mean_difference": 20.863947024544295,
+            "ci95": [
+              -5.074400527525125,
+              47.22977316710665
+            ],
+            "significant": false,
+            "images": 2058
+          },
+          "delta_km": {
+            "mean_difference": 27.50253611694213,
+            "ci95": [
+              5.907288226693332,
+              49.790788150957844
+            ],
+            "significant": true,
+            "images": 2058
+          },
+          "clipped_delta_km": {
+            "mean_difference": 7.338220146635941,
+            "ci95": [
+              -1.1929909414986892,
+              15.927643996370087
+            ],
+            "significant": false,
+            "images": 2058
+          }
+        }
+      }
+    },
+    "holdout": {
+      "images": 1321,
+      "units": 1321,
+      "baseline_mean_distance_km": 1755.393058010903,
+      "arms": {
+        "scatter": {
+          "draws": 6605,
+          "mean_one_minus_cosine": 0.001579953837268376,
+          "mean_changed": 0.12626797880393642,
+          "mean_displacement_km": 230.88641806075915,
+          "mean_delta_km": -30.66585071427083,
+          "mean_clipped_delta_km": -7.124809207166823,
+          "median_displacement_km": 0.0,
+          "mean_distance_km": 1786.058908725174,
+          "median_distance_km": 260.1937070972046,
+          "accuracy": {
+            "acc_1_km": 0.1315669947009841,
+            "acc_25_km": 0.3177895533686601,
+            "acc_200_km": 0.47509462528387586,
+            "acc_750_km": 0.65889477668433,
+            "acc_2500_km": 0.8142316426949281
+          }
+        },
+        "shift": {
+          "draws": 6605,
+          "mean_one_minus_cosine": 0.0020307383241299696,
+          "mean_changed": 0.14928084784254353,
+          "mean_displacement_km": 258.5225240825839,
+          "mean_delta_km": -2.4648095876211897,
+          "mean_clipped_delta_km": 3.8210362076257205,
+          "median_displacement_km": 0.0,
+          "mean_distance_km": 1757.857867598524,
+          "median_distance_km": 246.02896559689432,
+          "accuracy": {
+            "acc_1_km": 0.13262679788039364,
+            "acc_25_km": 0.32006056018168055,
+            "acc_200_km": 0.479333838001514,
+            "acc_750_km": 0.6640423921271764,
+            "acc_2500_km": 0.8165026495079485
+          }
+        },
+        "target": {
+          "draws": 1321,
+          "mean_one_minus_cosine": 0.0023087638963992445,
+          "mean_changed": 0.1453444360333081,
+          "mean_displacement_km": 275.18191192097726,
+          "mean_delta_km": -18.207700916309175,
+          "mean_clipped_delta_km": -5.316380123899723,
+          "median_displacement_km": 0.0,
+          "mean_distance_km": 1773.6007589272122,
+          "median_distance_km": 261.17584934468994,
+          "accuracy": {
+            "acc_1_km": 0.13247539742619227,
+            "acc_25_km": 0.31794095382286147,
+            "acc_200_km": 0.47312641937925815,
+            "acc_750_km": 0.6555639666919001,
+            "acc_2500_km": 0.8168054504163512
+          }
+        }
+      },
+      "contrasts": {
+        "target_vs_shift": {
+          "one_minus_cosine": {
+            "mean_difference": 0.0002780255722692751,
+            "ci95": [
+              0.00021521920579387597,
+              0.0003418400294847509
+            ],
+            "significant": true,
+            "images": 1321
+          },
+          "changed": {
+            "mean_difference": -0.0039364118092354294,
+            "ci95": [
+              -0.020136260408781227,
+              0.01226343679031037
+            ],
+            "significant": false,
+            "images": 1321
+          },
+          "displacement_km": {
+            "mean_difference": 16.659387838393297,
+            "ci95": [
+              -53.54132568908882,
+              89.84529994952702
+            ],
+            "significant": false,
+            "images": 1321
+          },
+          "delta_km": {
+            "mean_difference": -15.742891328687971,
+            "ci95": [
+              -75.99462271800442,
+              43.032199138018235
+            ],
+            "significant": false,
+            "images": 1321
+          },
+          "clipped_delta_km": {
+            "mean_difference": -9.137416331525445,
+            "ci95": [
+              -29.81938510527281,
+              11.314607941459101
+            ],
+            "significant": false,
+            "images": 1321
+          }
+        },
+        "target_vs_scatter": {
+          "one_minus_cosine": {
+            "mean_difference": 0.0007288100591308686,
+            "ci95": [
+              0.0006587096225303922,
+              0.0008028910944716304
+            ],
+            "significant": true,
+            "images": 1321
+          },
+          "changed": {
+            "mean_difference": 0.01907645722937169,
+            "ci95": [
+              0.003028009084027252,
+              0.03573050719152158
+            ],
+            "significant": true,
+            "images": 1321
+          },
+          "displacement_km": {
+            "mean_difference": 44.29549386021811,
+            "ci95": [
+              -21.72176879738686,
+              113.89809664965235
+            ],
+            "significant": false,
+            "images": 1321
+          },
+          "delta_km": {
+            "mean_difference": 12.45814979796166,
+            "ci95": [
+              -44.285717084976824,
+              69.13717574700803
+            ],
+            "significant": false,
+            "images": 1321
+          },
+          "clipped_delta_km": {
+            "mean_difference": 1.808429083267098,
+            "ci95": [
+              -17.88005010668945,
+              22.413738622002587
+            ],
+            "significant": false,
+            "images": 1321
+          }
+        },
+        "shift_vs_scatter": {
+          "one_minus_cosine": {
+            "mean_difference": 0.00045078448686159344,
+            "ci95": [
+              0.00040750664869643443,
+              0.0004950916065491122
+            ],
+            "significant": true,
+            "images": 1321
+          },
+          "changed": {
+            "mean_difference": 0.023012869038607116,
+            "ci95": [
+              0.013777441332324,
+              0.032248296744890236
+            ],
+            "significant": true,
+            "images": 1321
+          },
+          "displacement_km": {
+            "mean_difference": 27.636106021824798,
+            "ci95": [
+              -5.790604949452632,
+              62.87323547441497
+            ],
+            "significant": false,
+            "images": 1321
+          },
+          "delta_km": {
+            "mean_difference": 28.201041126649642,
+            "ci95": [
+              1.1694511000256338,
+              54.893267180906804
+            ],
+            "significant": true,
+            "images": 1321
+          },
+          "clipped_delta_km": {
+            "mean_difference": 10.945845414792544,
+            "ci95": [
+              -0.02348959089557963,
+              22.00991888703925
+            ],
+            "significant": false,
+            "images": 1321
+          }
+        }
+      }
+    }
+  },
+  "runtime_seconds": 1360.621903836
+}
