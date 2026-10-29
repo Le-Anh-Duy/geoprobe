@@ -22,7 +22,9 @@ the image pathway.
 In each of the $L=24$ self-attention layers of the vision tower, attention
 weights are obtained as $\mathrm{softmax}(QK^{\top}/\sqrt{d})$ over a
 sequence of $257$ tokens: one \texttt{CLS} token followed by $256$ patch
-tokens arranged on a $16 \times 16$ grid. To probe how a selected region influences the prediction, GeoProbe modifies how attention is distributed towards patches inside and outside that region at selected layers. A binary mask \(m \in \{0,1\}^{256}\) identifies the selected patches. At layer \(\ell\), GeoProbe adds a key-indexed bias to the attention logits before softmax,
+tokens arranged on a $16 \times 16$ grid. A binary mask
+$m\in\{0,1\}^{256}$ identifies the selected patches. At each selected layer
+$\ell$, GeoProbe adds a key-indexed bias before softmax,
 \begin{equation}
   A^{(\ell)} = \mathrm{softmax}\!\left(
   \frac{QK^{\top}}{\sqrt{d}} + \beta^{(\ell)} \right),
@@ -37,31 +39,78 @@ tokens arranged on a $16 \times 16$ grid. To probe how a selected region influen
 \end{equation}
 
 The bias is indexed by key and broadcast across all queries and heads,
-including \texttt{CLS} as a query. For each attention row, it multiplies the
-unnormalised weights by $\exp(\beta_j)$ before renormalisation: the relative
-weight of an in-region key against an out-of-region key is multiplied by
-$\exp(a_\ell-b_\ell)$. Intuitively, $a_\ell>0$ makes every token read more
-from the region, while $a_\ell\ll0$ hides it from the rest of the image. The
-control can therefore be displayed as either a
-logit bias or its equivalent scale factor. Setting $a_\ell=b_\ell=0$ at all
-layers is an exact no-op. The \texttt{CLS} key is kept unbiased because it
-has no spatial inside/outside assignment; its normalised attention weight
-can still change as patch-key weights change.
+including \texttt{CLS} as a query.
+%% Original (STT 1): For each attention row, it multiplies the unnormalised
+%% weights by exp(beta_j) before renormalisation: the relative weight of an
+%% in-region key against an out-of-region key is multiplied by exp(a_l-b_l).
+%% --> changed to:
+For a fixed layer and head, let $P_{ij}^{(\ell)}$ denote attention from
+the same query--key logits before biasing. Then
+\begin{equation}
+  B_j^{(\ell)}=\exp\!\bigl(\beta_j^{(\ell)}\bigr),
+  \qquad
+  A_{ij}^{(\ell)}=
+  \frac{P_{ij}^{(\ell)}B_j^{(\ell)}}
+       {\sum_{t=0}^{256}P_{it}^{(\ell)}B_t^{(\ell)}}.
+  \label{eq:reweighting}
+\end{equation}
+Here $i$ indexes queries and $j,t$ index keys; each row sums to one.
+% Reviewer comment: [STT 1] The meaning of exp(a_l-b_l) as a relative weight
+% was unclear. Decision: Replace that description with B_j^(l)=exp(beta_j^(l))
+% and an explicit row-normalisation formula. Reason: This separates the
+% positive key multiplier from the final attention probability and compares
+% weights at the same layer and head, without implying a full-model baseline.
+% -- Review update --
+%% Original (STT 2): Intuitively, a_l>0 makes every token read more from the
+%% region, while a_l<<0 hides it from the rest of the image.
+%% --> changed to:
+A positive $\beta_j^{(\ell)}$ gives $B_j^{(\ell)}>1$, increasing the key's
+unnormalised weight; a negative bias gives $0<B_j^{(\ell)}<1$, decreasing it.
+This applies equally to $a_\ell$ for in-region keys and $b_\ell$ for
+out-of-region keys; final probabilities depend on all key multipliers.
+% Reviewer comment: [STT 2] The intuition discussed only a_l although both
+% a_l and b_l control attention. Decision: Explain positive and negative
+% beta_j^(l) through the common multiplier B_j^(l), then identify the two
+% spatial cases. Reason: Both biases obey the same rule, and finite negative
+% bias reduces attention rather than removing the region's information.
+% -- Review update --
+Setting $a_\ell=b_\ell=0$ at all layers is an exact no-op. The non-spatial
+\texttt{CLS} key keeps $B_0^{(\ell)}=1$; its normalised weight can still
+change as patch-key weights change.
 The resulting output change measures the effect of this operation on the
 model's computation; it does not by itself establish that a semantic object
 causes the prediction in the photographed world.
 
 \subsection{Mapping Regions to Patches}
 
-A region delineated on the original image cannot be transferred to the patch
-grid directly, since CLIP resizes the shorter side to $224$ pixels and then
-applies a centre crop. GeoProbe replicates this geometry on the region
-coordinates, so that a patch is marked in-region only if it remains so after
-preprocessing. A patch is selected when its footprint overlaps the transformed
-region. Regions falling entirely outside the centre crop yield an empty mask.
-Dataset evaluation skips such images and keeps their baseline prediction,
-since Eq.~\ref{eq:bias} with an empty mask would still bias every patch key by
-$b_\ell$ relative to \texttt{CLS}. Multiple regions are combined by union.
+GeoProbe transforms original-image regions through CLIP's resize (shorter
+side $224$ pixels) and $224\times224$ centre crop onto the patch grid.
+A patch is selected if its footprint overlaps a transformed region;
+multiple regions are combined by union. Regions entirely outside the crop
+yield an empty mask.
+%% Original (STT 3): Dataset evaluation skips such images and keeps their
+%% baseline prediction.
+%% --> changed to:
+For an empty mask, dataset evaluation disables all biases and uses the
+baseline prediction as the intervened output. The image remains in the
+full-dataset metrics.
+% Reviewer comment: [STT 3] "Skips such images" could mean excluding images
+% from evaluation. Decision: State that only the intervention is disabled;
+% the baseline prediction is retained and the image stays in the metrics.
+% Reason: Empty masks do not reduce the evaluation denominator.
+% -- Review update --
+%% Original (STT 4): Since Eq. 1 with an empty mask would still bias every
+%% patch key by b_l relative to CLS.
+%% --> changed to:
+This explicit bypass is needed because Eq.~\ref{eq:bias} otherwise assigns
+$b_\ell$ to every patch key but zero to \texttt{CLS}. When $b_\ell\ne0$,
+this is not a uniform shift across all keys, so softmax can change.
+% Reviewer comment: [STT 4] The comparison with CLS was not motivated.
+% Decision: Explicitly contrast patch-key bias b_l with CLS-key bias zero
+% and state the condition b_l!=0. Reason: Softmax is invariant to a common
+% shift across every key, not to a shift of patch keys alone; the empty-mask
+% bypass is an explicit dataset-evaluation convention, not implied by Eq. 1.
+% -- Review update --
 
 \subsection{Specifying the Region}
 
