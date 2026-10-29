@@ -51,10 +51,16 @@ the same query--key logits before biasing. Then
   \qquad
   A_{ij}^{(\ell)}=
   \frac{P_{ij}^{(\ell)}B_j^{(\ell)}}
-       {\sum_{t=0}^{256}P_{it}^{(\ell)}B_t^{(\ell)}}.
+       {\sum_{k=0}^{256}P_{ik}^{(\ell)}B_k^{(\ell)}}.
   \label{eq:reweighting}
 \end{equation}
-Here $i$ indexes queries and $j,t$ index keys; each row sums to one.
+Here $i$ indexes queries, $j$ identifies the key being weighted, and $k$
+runs over all keys in the normalisation sum; each row sums to one.
+% Reviewer comment: The summation index t was less intuitive alongside i,j.
+% Decision: Use k consistently in the denominator and define its role.
+% Reason: k is a dummy index over all keys, while j identifies the key whose
+% attention weight is being computed; this changes notation only.
+% -- Review update --
 % Reviewer comment: [STT 1] The meaning of exp(a_l-b_l) as a relative weight
 % was unclear. Decision: Replace that description with B_j^(l)=exp(beta_j^(l))
 % and an explicit row-normalisation formula. Reason: This separates the
