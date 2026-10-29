@@ -22,10 +22,7 @@ the image pathway.
 In each of the $L=24$ self-attention layers of the vision tower, attention
 weights are obtained as $\mathrm{softmax}(QK^{\top}/\sqrt{d})$ over a
 sequence of $257$ tokens: one \texttt{CLS} token followed by $256$ patch
-tokens arranged on a $16 \times 16$ grid. Given a region mask
-$m \in \{0,1\}^{256}$ indicating the patches falling within the selected
-region, GeoProbe adds a key-indexed bias to the attention logits of layer
-$\ell$ prior to the softmax,
+tokens arranged on a $16 \times 16$ grid. To probe how a selected region influences the prediction, GeoProbe modifies how attention is distributed towards patches inside and outside that region at selected layers. A binary mask \(m \in \{0,1\}^{256}\) identifies the selected patches. At layer \(\ell\), GeoProbe adds a key-indexed bias to the attention logits before softmax,
 \begin{equation}
   A^{(\ell)} = \mathrm{softmax}\!\left(
   \frac{QK^{\top}}{\sqrt{d}} + \beta^{(\ell)} \right),
@@ -39,20 +36,19 @@ $\ell$ prior to the softmax,
   \label{eq:bias}
 \end{equation}
 
-Three properties make this a suitable analytical primitive. The bias is
-indexed by key and broadcast across all queries and heads, so every token
---- including \texttt{CLS} as a query --- draws proportionally more
-information from within the region when $a_\ell > 0$ and less from outside
-when $b_\ell < 0$. It is exactly a multiplicative reweighting of attention
-mass by $\exp(\beta_j)$, so the control may be presented either as a logit
-bias or as a scale factor. And $a_\ell = b_\ell = 0$ is an exact no-op, so
-the reported baseline is the unmodified model rather than an approximation.
-The \texttt{CLS} key is never biased: as a summary token rather than a
-spatial patch, the interior/exterior distinction does not apply to it, and
-biasing it would confound the regional effect with a global rescaling of the
-summary pathway.
-Here, ``causal'' refers narrowly to the effect of this controlled operation on
-the model's computation; it does not by itself establish that a semantic object
+The bias is indexed by key and broadcast across all queries and heads,
+including \texttt{CLS} as a query. For each attention row, it multiplies the
+unnormalised weights by $\exp(\beta_j)$ before renormalisation: the relative
+weight of an in-region key against an out-of-region key is multiplied by
+$\exp(a_\ell-b_\ell)$. Intuitively, $a_\ell>0$ makes every token read more
+from the region, while $a_\ell\ll0$ hides it from the rest of the image. The
+control can therefore be displayed as either a
+logit bias or its equivalent scale factor. Setting $a_\ell=b_\ell=0$ at all
+layers is an exact no-op. The \texttt{CLS} key is kept unbiased because it
+has no spatial inside/outside assignment; its normalised attention weight
+can still change as patch-key weights change.
+The resulting output change measures the effect of this operation on the
+model's computation; it does not by itself establish that a semantic object
 causes the prediction in the photographed world.
 
 \subsection{Mapping Regions to Patches}
@@ -61,17 +57,16 @@ A region delineated on the original image cannot be transferred to the patch
 grid directly, since CLIP resizes the shorter side to $224$ pixels and then
 applies a centre crop. GeoProbe replicates this geometry on the region
 coordinates, so that a patch is marked in-region only if it remains so after
-preprocessing. Regions falling entirely outside the centre crop yield an
-empty mask and therefore an exact no-op. We retain these cases in the
-full-dataset results and additionally report the active-mask subset. Multiple
-regions are combined by union.
+preprocessing. A patch is selected when its footprint overlaps the transformed
+region. Regions falling entirely outside the centre crop yield an empty mask.
+Dataset evaluation skips such images and keeps their baseline prediction,
+since Eq.~\ref{eq:bias} with an empty mask would still bias every patch key by
+$b_\ell$ relative to \texttt{CLS}. Multiple regions are combined by union.
 
 \subsection{Specifying the Region}
 
 Manually delineated rectangles support targeted case studies but do not scale
-to a complete dataset. Drawing one is itself a query, and the
-intervention consumes the resulting mask however it was obtained. Where no
-user is present to point, GeoProbe uses
+to a complete dataset. The same intervention mechanism accepts masks from either manual selection or automatic region proposals. For dataset-scale analysis, GeoProbe uses
 WeDetect-Uni~\cite{fu2026wedetect}, an open-vocabulary detector run in its
 visual-only configuration, which keeps proposal generation on CPU: boxes are
 scored against a bank of learned objectness prompts rather than a per-image
@@ -89,6 +84,4 @@ attention forward pass of all $24$ vision layers according to
 Eq.~\ref{eq:bias}; a React frontend provides region selection, per-layer
 control and map display. One request returns both the unmodified and the
 intervened top-$k$ predictions, so the comparison presented to the user is
-always between two forward passes of identical weights. Manual rectangles
-are used in the live interaction, while cached WeDetect-Uni proposals provide
-the reproducible dataset-scale analysis reported below.
+always between two forward passes of identical weights.

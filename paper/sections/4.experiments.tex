@@ -9,8 +9,7 @@ set. We cache boxes at an objectness threshold of $0.15$ after non-maximum
 suppression ($0.7$ IoU), then form the intervention mask from the union of at
 most $100$ boxes scoring at least $0.4$. This produces $6{,}152$ boxes in
 $2{,}081$ images; $2{,}058$ images retain a non-empty mask after CLIP's centre
-crop. Images without an active mask remain in the evaluation as exact no-ops,
-so the reported metrics describe the complete benchmark.
+crop. Images without an active mask keep their baseline prediction.
 
 For every active layer, the same in-region and out-of-region biases are applied
 to all $16$ heads, with base magnitudes $a=+2$ and $b=-2$. We measure top-1
@@ -23,7 +22,8 @@ $\operatorname{clip}(\Delta_i,-2500,2500)$~km. Confidence intervals use
 $10{,}000$ paired bootstrap resamples over images.
 
 We deterministically assign $1{,}079$ images to discovery and $1{,}918$ to
-holdout by hashing the file name. Model selection uses discovery only. A
+holdout by hashing the file name. All configuration choices use discovery
+only. A
 preliminary mixed-precision layer sweep on the discovery split supplies five candidates,
 $\{2,4,7,12,3\}$, ordered by discovery score. We evaluate all $26$ subsets containing two to five of
 these layers under three strength schedules: fixed $2$ per layer,
@@ -39,7 +39,8 @@ this configuration with the discovery-selected single-layer control. The
 apparent discovery gain does not transfer: the selected combination changes
 from $+11.94$~km on discovery to $-3.66$~km on holdout. Its paired advantage
 over layer 2 is only $0.64$~km (95\% CI $[-16.83,17.57]$). The experiment
-therefore does not support synergy between individually promising layers.
+therefore provides no statistically supported advantage of this selected
+combination over the selected single-layer control.
 
 \begin{table}[t]
 \centering
@@ -62,34 +63,25 @@ Layers 2, 7, 12 ($2/k$) & +11.94 & 1728.86 & -3.66 & $[-20.43,12.40]$ & 189.53 &
 \end{tabular}
 \end{table}
 
-Despite the absence of an accuracy gain, the intervention exposes output
-sensitivity. The selected configuration preserves a mean cosine similarity of
-$0.9984$ to the baseline image embedding, yet moves the predicted coordinate
-by $189.5$~km on average. GeoCLIP retrieves from $10^5$ location embeddings;
-small movements in representation space can therefore cross a gallery
-decision boundary and produce a geographically large change.
+Despite no accuracy gain, the intervention exposes output sensitivity: at
+mean embedding cosine $0.9984$, the prediction moves $189.5$~km on average.
+Retrieval over $10^5$ location embeddings lets a small representation change
+cross a gallery decision boundary.
 
 Increasing the number of layers does not help on average. With fixed magnitude
 $2$, mean holdout $\Delta_c$ declines from $-8.22$~km for two layers to
 $-39.35$~km for five. The $2/k$ schedule limits this accumulation ($-2.01$ to
 $-0.13$~km across sizes) without yielding a consistent positive effect. Candidate rankings also transfer
-weakly from discovery to holdout ($r=0.259$), underscoring the risk of
-reporting the best result on the same images used to find it.
+weakly from discovery to holdout ($r=0.259$).
 
-This conclusion is not an artefact of diluting the result with no-op images.
-On the $1{,}321$ holdout images with an active mask, the selected configuration
-obtains $-5.32$~km (95\% CI $[-28.75,18.02]$), and its paired advantage over
-layer 2 remains only $0.92$~km (95\% CI $[-23.66,25.66]$).
-
-A natural objection is that displacement merely tracks how much of the image
-the mask covers. It does not. Over the $2{,}051$ active-mask images of the
-all-layer $a=2$, $b=-2$ run, coverage and displacement are negatively related
-(Spearman $\rho=-0.256$): the least-covered quartile moves the prediction by a
-median of $407$~km with $13.8\%$ of images unmoved, whereas the quartile
-covering more than $81\%$ of patches moves it by a median of $0$~km with
-$49.4\%$ unmoved. Eq.~\ref{eq:bias} predicts this: a mask spanning nearly
-every patch biases every patch key almost equally, and softmax is invariant to
-a constant shift. The experiment still isolates
-layer-combination effects rather than showing that WeDetect regions are more
-informative than arbitrary ones; that claim needs an area-matched random-mask
-control.
+Restricted to the $1{,}321$ holdout images with an active mask, the selected
+configuration obtains $-5.32$~km (95\% CI $[-28.75,18.02]$), only $0.92$~km
+better than layer 2 ($[-23.66,25.66]$). As a control, each of the $2{,}058$ active
+masks is moved to five random grid offsets, preserving area and shape. Detected masks change the
+embedding more (mean $1-\cos$ $0.0023$ vs.\ $0.0020$) in every coverage band,
+most below $10\%$ coverage, where wrapping fragments shifted masks least;
+pooled displacement does not separate them ($+9.6$~km, $[-45.6,65.7]$).
+Suppressing one detected box at layer~2 ($a=-2$, $b=0$, as in
+Fig.~\ref{fig:demo_ui}) changes the top-1 prediction more often than an equal
+background rectangle ($2.5\%$ vs.\ $1.6\%$; difference $[0.4,2.2]$ points).
+Neither improves accuracy; the repository has the full breakdown.

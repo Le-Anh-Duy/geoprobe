@@ -1,11 +1,11 @@
 \section{Conclusion}
 
-GeoProbe makes geolocation evidence amenable to intervention rather than
-inspection. Its per-layer pre-softmax bias reads a causal analysis of a
-selected region from geographic displacement. On Img2GPS3k, the
-discovery-selected multi-layer schedule neither improved held-out error nor
-significantly outperformed one layer, yet moved predictions by $189.5$~km at
-feature cosine $0.9984$. Sensitivity is therefore an explanatory measurement,
-not evidence of improved prediction. Future work will select clue concepts by their
-causal effect rather than by detection confidence, and validate the selection
-on a fresh benchmark.
+GeoProbe measures how geolocation predictions change under controlled,
+region-conditioned attention interventions. On Img2GPS3k, the
+schedule selected on discovery gave no supported held-out gain, yet moved
+predictions by $189.5$~km at mean cosine $0.9984$. Detected regions changed
+the embedding, and suppressed boxes the top-1 prediction, more than matched
+controls, without improving accuracy or showing that the content explains the
+prediction. Evaluation covers one model and benchmark,
+without users; future work adds matched controls to the interface, further
+models and benchmarks, and a user study.

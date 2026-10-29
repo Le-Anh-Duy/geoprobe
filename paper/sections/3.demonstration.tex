@@ -3,33 +3,48 @@
 
 \begin{figure}[t]
   \centering
-  \small
+  % Panels are cropped from the live screenshots (1 px = 1 bp; trim = l b r t).
   \begin{tikzpicture}[
-      node distance=4mm,
-      stage/.style={draw, rounded corners=1pt, align=center,
-                    minimum height=9mm, text width=24mm, inner sep=2pt},
-      arrow/.style={->, line width=0.45pt}]
-    \node[stage] (input) {Image\\+ regions};
-    \node[stage, right=of input] (control) {Per-layer\\attention bias};
-    \node[stage, right=of control] (passes) {Baseline +\\intervened passes};
-    \node[stage, right=of passes] (output) {GPS results\\+ displacement};
-    \draw[arrow] (input) -- (control);
-    \draw[arrow] (control) -- (passes);
-    \draw[arrow] (passes) -- (output);
+      node distance=3.5mm,
+      panel/.style={inner sep=0, draw=black!30},
+      caption/.style={font=\scriptsize, align=center, anchor=north},
+      arrow/.style={->, line width=0.5pt},
+      callout/.style={circle, draw=black, fill=white, text=black,
+                      font=\sffamily\bfseries\small, inner sep=0.5pt,
+                      minimum size=4mm}]
+    \node[panel] (region) {\includegraphics[height=18mm,
+      trim=30 146 540 88, clip]{figures/ui-demo-controls.jpg}};
+    \node[panel, right=of region] (bias) {\includegraphics[height=18mm,
+      trim=578 233 220 115, clip]{figures/ui-demo-controls.jpg}};
+    \node[panel, right=of bias] (map) {\includegraphics[height=18mm,
+      trim=30 60 15 318, clip]{figures/ui-demo-results.jpg}};
+    \draw[arrow] (region) -- (bias);
+    \draw[arrow] (bias) -- (map);
+    \node[caption] at ([yshift=-1mm]region.south) {Image + region};
+    \node[caption] at ([yshift=-1mm]bias.south) {Per-layer bias};
+    \node[caption] at ([yshift=-1mm]map.south) {Baseline vs.\ intervened top-1};
+    \node[callout] at (region.north west) {1};
+    \node[callout] at (bias.north west) {2};
+    \node[callout] at (map.north west) {3};
   \end{tikzpicture}
-  \caption{Interactive analysis flow. Regions may be drawn manually or loaded
-  from WeDetect-Uni; both model outputs are presented together.}
-  \label{fig:interaction_flow}
-  \vspace{-2mm}
+  \caption{Live GeoProbe session. (1) A manually selected region activates
+  $84/256$ patches. (2) Layer 2 uses $a=-2$, $b=0$; all other layers remain
+  zero. (3) The top-1 prediction (blue: baseline, red: intervened) moves
+  $212.5$~km from Quinte West to Ottawa; the pin marks ground truth. The
+  displacement measures sensitivity to the chosen intervention.}
+  \label{fig:demo_ui}
 \end{figure}
 
-Attendees operate the system directly through three short scenarios.
+Figure~\ref{fig:demo_ui} shows a live session. Attendees can try three
+interaction scenarios.
 
 \subsubsection{Regional dependence.}
-The attendee uploads a street-level image, marks a visual cue such as a sign or
-licence plate, and suppresses its region. A large map displacement demonstrates
-sensitivity to that evidence; a small one indicates a prediction that is stable
-under the intervention.
+The attendee uploads an image, marks a visual cue such as a sign,
+licence plate or uniform, and suppresses attention towards its region. A large map
+displacement shows sensitivity to this attention intervention; a small one
+indicates a prediction that is stable under the chosen configuration.
+Suppressing an equal background rectangle shows whether the response is
+specific to the cue; neither establishes that the cue explains the prediction.
 
 \subsubsection{Proposal comparison.}
 For a benchmark example, cached WeDetect-Uni proposals can be applied
@@ -45,16 +60,9 @@ the baseline exactly.
 
 \subsection{Deployment and Relevance}
 
-The live system stores GeoCLIP, its $10^5$-point GPS gallery, location
-embeddings and cached proposals locally. Only basemap tiles and place names
-come from public map services, and they are not part of model inference.
-
-We bring the demonstration machine; the appendix states the setup
-requirements in full. The implementation, the evaluation
-scripts and the results reported here are available at
-\url{https://github.com/Le-Anh-Duy/geoprobe}.
-GeoProbe connects multimodal geolocation with causal explanation: rather than
-presenting an attention map as evidence, it lets the attendee change an
-attention pathway and observe the consequent geographic output. This
-distinction is relevant to both multimedia verification and the privacy risks
-of inferring location from untagged images.
+Inference runs offline on the demonstration machine we bring; the appendix
+states the setup requirements. The implementation, evaluation scripts and
+full-dataset run results are at
+\url{https://github.com/Le-Anh-Duy/geoprobe}. Observing how attention
+interventions move a geographic prediction is relevant to both multimedia
+verification and the privacy risks of inferring location from untagged images.

@@ -23,3 +23,20 @@ Both are correct for what their names say; they are not interchangeable.
 The current Table 1 comes from the per-layer discovery/holdout search, not from
 these scripts — see `../experiments/README.md`. The scripts are kept because
 they document the earlier full-dataset runs that are committed here.
+
+## Live UI figure
+
+`figures/ui-demo-live.jpg` is an unaltered full-page capture of the running UI.
+`ui-demo-controls.jpg` and `ui-demo-results.jpg` are browser-captured crops of
+that same session, annotated with numbered callouts in LaTeX.
+
+The input is `392426226_fde8ad65f3_166_32377115@N00.jpg` from the local
+`Thesis/Data/demo` directory. Ground truth in its accompanying `gt.txt` is
+`53.306339, -6.441485`. A manually drawn uniform region activates 84 patches.
+Its normalised rectangle is approximately `x=0.0938825, y=0.138375,
+w=0.28195, h=0.819024` in the original image.
+Layer 2 uses `a=-2, b=0`; all other layers have zero biases; top-k is 1.
+The live baseline is `44.1089, -77.5489` (Quinte West) and the intervened
+prediction is `45.4593, -75.6437` (Ottawa). The UI reports 212.5 km great-circle
+displacement. This is a demonstration example, separate from Table 1's selected
+configuration and held-out evaluation.
